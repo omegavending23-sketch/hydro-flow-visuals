@@ -1,0 +1,168 @@
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
+
+const ContactsSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Form submission placeholder
+    alert("Спасибо! Мы свяжемся с вами в ближайшее время.");
+    setFormData({ name: "", email: "", phone: "", message: "" });
+  };
+
+  return (
+    <section id="contacts" className="section-padding relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 water-gradient-bg opacity-[0.03]" />
+
+      <div className="container mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-heading font-semibold bg-primary/10 text-primary mb-4">
+            Контакты
+          </span>
+          <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground mb-4">
+            Свяжитесь <span className="text-gradient-water">с нами</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Готовы стать партнёром или хотите узнать больше? Заполните форму или позвоните нам
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-8"
+          >
+            <div className="glass-card p-8">
+              <h3 className="font-heading font-bold text-xl text-foreground mb-6">Наши контакты</h3>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <div className="font-heading font-semibold text-foreground">Адрес</div>
+                    <div className="text-muted-foreground">Республика Польша</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <div className="font-heading font-semibold text-foreground">Телефон</div>
+                    <div className="text-muted-foreground">+48 XXX XXX XXX</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <div className="font-heading font-semibold text-foreground">Email</div>
+                    <div className="text-muted-foreground">info@wodomat.pl</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Trust badges */}
+            <div className="glass-card p-8">
+              <h3 className="font-heading font-bold text-xl text-foreground mb-4">Почему WODOMAT?</h3>
+              <ul className="space-y-3">
+                {[
+                  "Собственная сеть из 30+ водоматов",
+                  "Полная техническая и юридическая поддержка",
+                  "Обучение и помощь в развитии бизнеса",
+                  "Гарантийное и постгарантийное обслуживание",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6">
+              <h3 className="font-heading font-bold text-xl text-foreground mb-2">Оставить заявку</h3>
+              <p className="text-muted-foreground text-sm mb-4">Заполните форму и мы свяжемся с вами</p>
+
+              <div>
+                <label className="block text-sm font-heading font-medium text-foreground mb-2">Имя</label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+                  placeholder="Ваше имя"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-heading font-medium text-foreground mb-2">Email</label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+                  placeholder="email@example.com"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-heading font-medium text-foreground mb-2">Телефон</label>
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+                  placeholder="+48 XXX XXX XXX"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-heading font-medium text-foreground mb-2">Сообщение</label>
+                <textarea
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all resize-none"
+                  placeholder="Расскажите о вашем интересе..."
+                />
+              </div>
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <Send className="w-5 h-5" />
+                Отправить заявку
+              </motion.button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactsSection;
