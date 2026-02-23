@@ -86,7 +86,7 @@ const RentalSection = () => {
             </div>
           </div>
           <button
-            onClick={() => document.querySelector("#contacts")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => window.location.href = "/contacts"}
             className="px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
           >
             Обсудить условия

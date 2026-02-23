@@ -1,14 +1,10 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
-  const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -61,18 +57,18 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <button
-              onClick={() => scrollTo("#contacts")}
-              className="px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
+            <Link
+              to="/contacts"
+              className="px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 text-center"
             >
               Стать партнером
-            </button>
-            <button
-              onClick={() => scrollTo("#catalog")}
-              className="px-8 py-4 rounded-2xl font-heading font-semibold text-lg border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300 backdrop-blur-sm"
+            </Link>
+            <Link
+              to="/catalog"
+              className="px-8 py-4 rounded-2xl font-heading font-semibold text-lg border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300 backdrop-blur-sm text-center"
             >
               Каталог водоматов
-            </button>
+            </Link>
           </motion.div>
 
           {/* Stats */}

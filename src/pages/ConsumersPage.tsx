@@ -1,15 +1,17 @@
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
+import ConsumersSection from "@/components/ConsumersSection";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+const ConsumersPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <HeroSection />
+      <div className="pt-24">
+        <ConsumersSection />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default ConsumersPage;
