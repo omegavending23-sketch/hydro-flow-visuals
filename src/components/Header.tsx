@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Droplets } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
-  { label: "Главная", href: "#hero" },
-  { label: "Каталог", href: "#catalog" },
-  { label: "Аренда", href: "#rental" },
-  { label: "Потребителям", href: "#consumers" },
-  { label: "Контакты", href: "#contacts" },
+  { label: "Главная", href: "/" },
+  { label: "Каталог", href: "/catalog" },
+  { label: "Аренда", href: "/rental" },
+  { label: "Потребителям", href: "/consumers" },
+  { label: "Контакты", href: "/contacts" },
 ];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -20,56 +23,56 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollTo = (href: string) => {
-    setIsOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+        scrolled || !isHome
           ? "glass-card border-b py-3"
           : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        <a href="#hero" onClick={() => scrollTo("#hero")} className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group">
           <Droplets className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
           <span className="font-heading font-bold text-xl tracking-tight">
             <span className="text-primary">WODO</span>
-            <span className={scrolled ? "text-foreground" : "text-primary-foreground"}>MAT</span>
+            <span className={scrolled || !isHome ? "text-foreground" : "text-primary-foreground"}>MAT</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
-            <button
+            <Link
               key={item.href}
-              onClick={() => scrollTo(item.href)}
+              to={item.href}
               className={`px-4 py-2 rounded-lg font-heading text-sm font-medium transition-all duration-300 hover:bg-primary/10 hover:text-primary ${
-                scrolled ? "text-foreground" : "text-primary-foreground"
+                isActive(item.href)
+                  ? "text-primary bg-primary/10"
+                  : scrolled || !isHome
+                  ? "text-foreground"
+                  : "text-primary-foreground"
               }`}
             >
               {item.label}
-            </button>
+            </Link>
           ))}
-          <button
-            onClick={() => scrollTo("#hero")}
+          <Link
+            to="/contacts"
             className="ml-2 px-5 py-2.5 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105"
           >
             Стать партнером
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`md:hidden p-2 rounded-lg ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
+          className={`md:hidden p-2 rounded-lg ${scrolled || !isHome ? "text-foreground" : "text-primary-foreground"}`}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -86,20 +89,26 @@ const Header = () => {
           >
             <div className="p-4 flex flex-col gap-1">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.href}
-                  onClick={() => scrollTo(item.href)}
-                  className="px-4 py-3 rounded-xl font-heading text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-all text-left"
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`px-4 py-3 rounded-xl font-heading text-sm font-medium transition-all text-left ${
+                    isActive(item.href)
+                      ? "text-primary bg-primary/10"
+                      : "text-foreground hover:bg-primary/10 hover:text-primary"
+                  }`}
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
-              <button
-                onClick={() => scrollTo("#hero")}
+              <Link
+                to="/contacts"
+                onClick={() => setIsOpen(false)}
                 className="mt-2 px-5 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground text-center"
               >
                 Стать партнером
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}
