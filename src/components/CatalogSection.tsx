@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Zap, Droplets, Leaf, Clock, Award } from "lucide-react";
-import productImg from "@/assets/wodomat-product.jpg";
+import wodomatX from "@/assets/wodomat-x.jpg";
+import wodomatS from "@/assets/wodomat-s.jpg";
 import WaterBackground from "./WaterBackground";
 
 const features = [
@@ -14,6 +15,25 @@ const features = [
   { icon: Award, title: "Минерализация", desc: "Оптимальный уровень полезных минералов" },
 ];
 
+const products = [
+  {
+    image: wodomatX,
+    name: "WODOMAT X",
+    subtitle: "Премиальный интеллектуальный водомат для стабильного и масштабируемого бизнеса вашей собственной сети",
+    description: "WODOMAT X — это не просто аппарат по продаже воды.\n\nЭто комплексная система: технология, цифровой контроль, сервисная дисциплина и поддержка партнёров.",
+    dimensions: "Высота без ножек 200 см · Глубина 85 см · Ширина 85 см",
+    price: "10 500 руб.",
+  },
+  {
+    image: wodomatS,
+    name: "WODOMAT S",
+    subtitle: "WODOMAT S — компактное профессиональное решение для аква-вендинга",
+    description: "WODOMAT S — это не просто аппарат по продаже воды.\n\nЭто комплексная система, объединяющая современные технологии очистки воды, цифровой контроль работы оборудования, удобные инструменты управления бизнесом и полноценную поддержку партнёров.\n\nМодель разработана специально для настенного размещения на фасадах зданий, что позволяет эффективно использовать пространство и устанавливать оборудование даже в местах с ограниченной площадью.",
+    dimensions: "Высота 170 см · Глубина 85 см · Ширина 60 см",
+    price: "9 800 руб.",
+  },
+];
+
 const CatalogSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -22,6 +42,7 @@ const CatalogSection = () => {
     <WaterBackground intensity="light">
       <section id="catalog" className="section-padding" ref={ref}>
         <div className="container mx-auto">
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -40,49 +61,78 @@ const CatalogSection = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Product Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative group"
-            >
-              <div className="relative rounded-3xl overflow-hidden glass-card p-8">
-                <img
-                  src={productImg}
-                  alt="Водомат WODOMAT"
-                  className="w-full h-auto rounded-2xl transition-transform duration-700 group-hover:scale-105"
-                />
-                {/* 3D hover glow */}
-                <div className="absolute inset-0 rounded-3xl bg-primary/0 group-hover:bg-primary/5 transition-all duration-500" />
-              </div>
-              {/* Floating badge */}
+          {/* Product Cards */}
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto mb-20">
+            {products.map((product, i) => (
               <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -bottom-4 right-8 glass-card px-6 py-3 rounded-2xl"
+                key={product.name}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.2 + i * 0.2 }}
+                className="glass-card rounded-3xl overflow-hidden flex flex-col items-center text-center group"
               >
-                <span className="font-heading font-bold text-primary text-lg">от 14 600 зл</span>
-              </motion.div>
-            </motion.div>
+                {/* Image */}
+                <div className="w-full p-6 pb-0 flex justify-center">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-[340px] md:h-[400px] object-contain transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
 
-            {/* Features Grid */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {features.map((feature, i) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                  className="glass-card-hover p-5 cursor-default group"
-                >
-                  <feature.icon className="w-8 h-8 text-primary mb-3 transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="font-heading font-semibold text-foreground mb-1">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+                {/* Content */}
+                <div className="p-6 pt-4 flex flex-col items-center flex-1">
+                  <h3 className="font-heading font-bold text-2xl md:text-3xl text-gradient-water mb-3">
+                    {product.name}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                    {product.subtitle}
+                  </p>
+                  <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line mb-4">
+                    {product.description}
+                  </p>
+                  <p className="text-xs text-muted-foreground/70 mb-4">
+                    {product.dimensions}
+                  </p>
+                  <p className="font-heading font-bold text-2xl text-foreground mb-5">
+                    {product.price}
+                  </p>
+
+                  {/* Shine button */}
+                  <button className="relative overflow-hidden px-8 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105 mt-auto">
+                    <span className="relative z-10">Подробнее</span>
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] group-hover:translate-x-[200%] transition-transform duration-700 ease-in-out" />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Features Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h3 className="font-heading font-bold text-2xl md:text-3xl text-foreground">
+              Преимущества наших водоматов
+            </h3>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {features.map((feature, i) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
+                className="glass-card-hover p-5 cursor-default group"
+              >
+                <feature.icon className="w-8 h-8 text-primary mb-3 transition-transform duration-300 group-hover:scale-110" />
+                <h4 className="font-heading font-semibold text-foreground mb-1">{feature.title}</h4>
+                <p className="text-sm text-muted-foreground">{feature.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
