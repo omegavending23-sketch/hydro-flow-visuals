@@ -182,3 +182,8 @@
   75% { border-radius: 40% 60% 50% 50% / 60% 40% 50% 50%; transform: rotate(270deg) scale(1.02); }
   100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(360deg) scale(1); }
 }
+
+@keyframes shine {
+  0% { transform: translateX(-100%) skewX(-20deg); }
+  100% { transform: translateX(300%) skewX(-20deg); }
+}
