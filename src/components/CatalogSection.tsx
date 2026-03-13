@@ -99,9 +99,9 @@ const CatalogSection = () => {
                   </p>
 
                   {/* Shine button */}
-                  <button className="relative overflow-hidden px-8 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105 mt-auto">
+                  <button className="relative overflow-hidden px-8 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-lg hover:scale-105 mt-auto">
                     <span className="relative z-10">Подробнее</span>
-                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] group-hover:translate-x-[200%] transition-transform duration-700 ease-in-out" />
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
                   </button>
                 </div>
               </motion.div>
