@@ -20,15 +20,15 @@ const products = [
     image: wodomatX,
     name: "WODOMAT X",
     subtitle: "Премиальный интеллектуальный водомат для стабильного и масштабируемого бизнеса вашей собственной сети",
-    description: "WODOMAT X — это не просто аппарат по продаже воды.\n\nЭто комплексная система: технология, цифровой контроль, сервисная дисциплина и поддержка партнёров.",
-    dimensions: "Высота без ножек 200 см · Глубина 85 см · Ширина 85 см",
+    description: "Комплексная система: технология, цифровой контроль, сервисная дисциплина и поддержка партнёров.",
+    dimensions: "Высота 200 см · Глубина 85 см · Ширина 85 см",
     price: "10 500 руб.",
   },
   {
     image: wodomatS,
     name: "WODOMAT S",
-    subtitle: "WODOMAT S — компактное профессиональное решение для аква-вендинга",
-    description: "WODOMAT S — это не просто аппарат по продаже воды.\n\nЭто комплексная система, объединяющая современные технологии очистки воды, цифровой контроль работы оборудования, удобные инструменты управления бизнесом и полноценную поддержку партнёров.\n\nМодель разработана специально для настенного размещения на фасадах зданий, что позволяет эффективно использовать пространство и устанавливать оборудование даже в местах с ограниченной площадью.",
+    subtitle: "Компактное профессиональное решение для аква-вендинга",
+    description: "Комплексная система, объединяющая современные технологии очистки воды, цифровой контроль работы оборудования, удобные инструменты управления бизнесом и полноценную поддержку партнёров.\n\nМодель разработана специально для настенного размещения на фасадах зданий, что позволяет эффективно использовать пространство и устанавливать оборудование даже в местах с ограниченной площадью.",
     dimensions: "Высота 170 см · Глубина 85 см · Ширина 60 см",
     price: "9 800 руб.",
   },
@@ -99,9 +99,9 @@ const CatalogSection = () => {
                   </p>
 
                   {/* Shine button */}
-                  <button className="relative overflow-hidden px-8 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105 mt-auto">
+                  <button className="relative overflow-hidden px-8 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-lg hover:scale-105 mt-auto">
                     <span className="relative z-10">Подробнее</span>
-                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] group-hover:translate-x-[200%] transition-transform duration-700 ease-in-out" />
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
                   </button>
                 </div>
               </motion.div>
@@ -134,6 +134,25 @@ const CatalogSection = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Consultation CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 1.3 }}
+            className="text-center mt-20"
+          >
+            <h3 className="font-heading font-bold text-2xl md:text-3xl text-foreground mb-3">
+              Не знаете какой выбрать водомат?
+            </h3>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
+              Мы поможем вам выбрать лучший вариант водомата исходя из ваших потребностей
+            </p>
+            <button className="relative overflow-hidden px-10 py-4 rounded-xl font-heading text-base font-semibold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <span className="relative z-10">Получить консультацию</span>
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
+            </button>
+          </motion.div>
         </div>
       </section>
     </WaterBackground>
