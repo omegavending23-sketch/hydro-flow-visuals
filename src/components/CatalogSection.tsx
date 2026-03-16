@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Zap, Droplets, Leaf, Clock, Award } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import wodomatX from "@/assets/wodomat-x.jpg";
 import wodomatS from "@/assets/wodomat-s.jpg";
 import WaterBackground from "./WaterBackground";
@@ -23,6 +24,7 @@ const products = [
     description: "Комплексная система: технология, цифровой контроль, сервисная дисциплина и поддержка партнёров.",
     dimensions: "Высота 200 см · Глубина 85 см · Ширина 85 см",
     price: "10 500 руб.",
+    link: "/catalog/wodomat-x",
   },
   {
     image: wodomatS,
@@ -31,12 +33,14 @@ const products = [
     description: "Комплексная система, объединяющая современные технологии очистки воды, цифровой контроль работы оборудования, удобные инструменты управления бизнесом и полноценную поддержку партнёров.\n\nМодель разработана специально для настенного размещения на фасадах зданий, что позволяет эффективно использовать пространство и устанавливать оборудование даже в местах с ограниченной площадью.",
     dimensions: "Высота 170 см · Глубина 85 см · Ширина 60 см",
     price: "9 800 руб.",
+    link: "",
   },
 ];
 
 const CatalogSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const navigate = useNavigate();
 
   return (
     <WaterBackground intensity="light">
@@ -99,7 +103,10 @@ const CatalogSection = () => {
                   </p>
 
                   {/* Shine button */}
-                  <button className="relative overflow-hidden px-8 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-lg hover:scale-105 mt-auto">
+                  <button
+                    onClick={() => product.link && navigate(product.link)}
+                    className="relative overflow-hidden px-8 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-lg hover:scale-105 mt-auto"
+                  >
                     <span className="relative z-10">Подробнее</span>
                     <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
                   </button>
