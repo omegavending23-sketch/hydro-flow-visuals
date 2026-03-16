@@ -40,6 +40,7 @@ const products = [
 const CatalogSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const navigate = useNavigate();
 
   return (
     <WaterBackground intensity="light">
