@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Zap, Droplets, Leaf, Clock, Award } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import wodomatX from "@/assets/wodomat-x.jpg";
 import wodomatS from "@/assets/wodomat-s.jpg";
 import WaterBackground from "./WaterBackground";
