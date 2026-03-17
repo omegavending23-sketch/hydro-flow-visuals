@@ -9,7 +9,7 @@ const comparisonData = [
   { feature: "Модуль связи", wodomat: "4G (LTE)", others: "2G (устаревший)", highlight: true },
   { feature: "Сервисный TG-БОТ", wodomat: "Есть (электронная сервисная книга)", others: "Нет", highlight: true },
   { feature: "Ступеней очистки", wodomat: "12 ступеней", others: "До 10 ступеней", highlight: true },
-  { feature: "Озонирование", wodomat: "Двойное (вода + тара)", others: "Одиночное", highlight: true },
+  { feature: "Озонирование", wodomat: "Двойное (вода + тара)", others: "Одиночное (только тара клиента)", highlight: true },
   { feature: "Неоновые фризы", wodomat: "В базовой комплектации", others: "За дополнительную плату", highlight: true },
   { feature: 'ЖКИ-дисплей 21,5"', wodomat: "Есть", others: "Нет", highlight: true },
   { feature: "Система лояльности", wodomat: "Скидочные карты в базе", others: "Нет", highlight: true },
