@@ -90,7 +90,7 @@ const AdvantageCard = ({ item, index }: { item: AdvantageItem; index: number }) 
           <div className="flex items-start gap-2">
             <Zap className="w-4 h-4 text-destructive/70 mt-0.5 flex-shrink-0" />
             <p className="text-sm text-destructive/80 font-medium">
-              <span className="font-heading font-semibold">У других:</span> {item.competitorNote}
+              <span className="font-heading font-semibold">У других производителей:</span> {item.competitorNote}
             </p>
           </div>
         </motion.div>

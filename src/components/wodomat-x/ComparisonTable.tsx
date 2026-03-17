@@ -3,17 +3,19 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { Check, X, Minus } from "lucide-react";
 
-const comparisonData = [
+const comparisonData: { feature: string; wodomat: string; others: string; highlight: boolean; isPrice?: boolean }[] = [
   { feature: "Система обогрева", wodomat: "Точечный нагрев ключевых элементов", others: "Печной / вентиляторный обогрев", highlight: true },
   { feature: "Ремонт системы обогрева", wodomat: "Легко, без специальных знаний", others: "Требует квалификации и времени", highlight: true },
   { feature: "Модуль связи", wodomat: "4G (LTE)", others: "2G (устаревший)", highlight: true },
   { feature: "Сервисный TG-БОТ", wodomat: "Есть (электронная сервисная книга)", others: "Нет", highlight: true },
   { feature: "Ступеней очистки", wodomat: "12 ступеней", others: "До 10 ступеней", highlight: true },
-  { feature: "Озонирование", wodomat: "Двойное (вода + тара)", others: "Одиночное", highlight: true },
+  { feature: "Озонирование", wodomat: "Двойное (вода + тара)", others: "Одиночное (только тара клиента)", highlight: true },
   { feature: "Неоновые фризы", wodomat: "В базовой комплектации", others: "За дополнительную плату", highlight: true },
   { feature: 'ЖКИ-дисплей 21,5"', wodomat: "Есть", others: "Нет", highlight: true },
   { feature: "Система лояльности", wodomat: "Скидочные карты в базе", others: "Нет", highlight: true },
+  { feature: "Банковский терминал", wodomat: "В базовой комплектации", others: "Подготовка за дополнительную плату", highlight: true },
   { feature: "Полочка из нержавеющей стали", wodomat: "В базовой комплектации", others: "За дополнительную плату", highlight: true },
+  { feature: "Цена водомата", wodomat: "10 500 руб.", others: "ОТ 15 000 руб.", highlight: true, isPrice: true },
 ];
 
 const getIcon = (value: string) => {
@@ -76,19 +78,29 @@ const ComparisonTable = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
-                    className="border-b border-border/30 last:border-0 hover:bg-primary/[0.03] transition-colors"
+                    className={`border-b border-border/30 last:border-0 hover:bg-primary/[0.03] transition-colors ${row.isPrice ? "bg-primary/10" : ""}`}
                   >
-                    <td className="p-4 md:p-5 font-medium text-foreground text-sm">
+                    <td className={`p-4 md:p-5 font-medium text-foreground text-sm ${row.isPrice ? "font-heading font-bold text-base" : ""}`}>
                       {row.feature}
                     </td>
                     <td className="p-4 md:p-5 text-center">
-                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                        <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        {row.wodomat}
-                      </span>
+                      {row.isPrice ? (
+                        <span className="inline-flex items-center gap-2 text-base font-heading font-bold text-primary">
+                          {row.wodomat}
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                          <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                          {row.wodomat}
+                        </span>
+                      )}
                     </td>
                     <td className="p-4 md:p-5 text-center">
-                      {row.others === "Нет" ? (
+                      {row.isPrice ? (
+                        <span className="inline-flex items-center gap-2 text-base font-heading font-bold text-destructive/80">
+                          {row.others}
+                        </span>
+                      ) : row.others === "Нет" ? (
                         <span className="inline-flex items-center gap-2 text-sm text-destructive/70">
                           <X className="w-5 h-5 flex-shrink-0" />
                           {row.others}
@@ -114,7 +126,7 @@ const ComparisonTable = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.3, delay: 0.2 + i * 0.05 }}
-                className="p-4 space-y-2"
+                className={`p-4 space-y-2 ${row.isPrice ? "bg-primary/10" : ""}`}
               >
                 <p className="font-heading font-semibold text-foreground text-sm">{row.feature}</p>
                 <div className="flex items-start gap-2 text-sm">
