@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { Check, X, Minus } from "lucide-react";
 
-const comparisonData = [
+const comparisonData: { feature: string; wodomat: string; others: string; highlight: boolean; isPrice?: boolean }[] = [
   { feature: "Система обогрева", wodomat: "Точечный нагрев ключевых элементов", others: "Печной / вентиляторный обогрев", highlight: true },
   { feature: "Ремонт системы обогрева", wodomat: "Легко, без специальных знаний", others: "Требует квалификации и времени", highlight: true },
   { feature: "Модуль связи", wodomat: "4G (LTE)", others: "2G (устаревший)", highlight: true },
