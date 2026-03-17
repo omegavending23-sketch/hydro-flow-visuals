@@ -80,7 +80,7 @@ const ComparisonTable = () => {
                     transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
                     className={`border-b border-border/30 last:border-0 hover:bg-primary/[0.03] transition-colors ${row.isPrice ? "bg-primary/10" : ""}`}
                   >
-                    <td className="p-4 md:p-5 font-medium text-foreground text-sm">
+                    <td className={`p-4 md:p-5 font-medium text-foreground text-sm ${row.isPrice ? "font-heading font-bold text-base" : ""}`}>
                       {row.feature}
                     </td>
                     <td className="p-4 md:p-5 text-center">
