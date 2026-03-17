@@ -11,16 +11,19 @@ import {
   GraduationCap, Globe
 } from "lucide-react";
 import wodomatX from "@/assets/wodomat-x.jpg";
+import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
+import ComparisonTable from "@/components/wodomat-x/ComparisonTable";
 
-const advantages = [
+const advantages: AdvantageItem[] = [
   {
     icon: Thermometer,
     number: 1,
     title: "Умная энергоэффективная система климат-контроля (до –40°C)",
     description: "Уникальная система обогрева нагревает ключевые элементы оборудования, а не воздух внутри корпуса.",
     details: ["Трубопроводы", "Фильтры", "Мембраны", "Насосный узел", "Камеру розлива"],
-    benefits: ["Нет лишних энергозатрат", "Быстрый выход на рабочую температуру", "Стабильная работа зимой", "Продление срока службы оборудования"],
-    accent: "Профессиональный точечный нагрев, а не обычный вентиляторный обогрев",
+    benefits: ["Нет лишних энергозатрат", "Быстрый выход на рабочую температуру", "Стабильная работа зимой", "Продление срока службы оборудования", "Ремонт осуществляется легко, без специальных знаний и длительного времени"],
+    accent: "Профессиональный точечный нагрев, а не обычный вентиляторный или печной обогрев",
+    competitorNote: "Печной и вентиляторный обогрев — неэффективно, дорого в ремонте",
   },
   {
     icon: Wifi,
@@ -29,6 +32,7 @@ const advantages = [
     description: "WODOMAT X оснащён современным 4G-модулем связи. Используется именно 4G, а не устаревший 2G.",
     details: ["Контроль продаж в реальном времени", "Мониторинг рабочих параметров", "Удалённая диагностика 24/7", "Быстрая и стабильная передача данных"],
     benefits: ["Полный контроль бизнеса из любой точки", "Минимизация выездов", "Современная цифровая инфраструктура"],
+    competitorNote: "Устаревший 2G-модуль — медленный и нестабильный",
   },
   {
     icon: Bot,
@@ -38,6 +42,7 @@ const advantages = [
     details: ["Дата установки", "Замены фильтров", "Плановое обслуживание", "Ремонты и фотоотчёты", "Инкассации"],
     benefits: ["Полный порядок в бизнесе", "Ничего не забывается", "Идеально для масштабирования сети", "Прозрачная история эксплуатации"],
     accent: "Структурированная цифровая история повышает доверие покупателя и стоимость актива",
+    competitorNote: "Сервисный TG-БОТ отсутствует",
   },
   {
     icon: Filter,
@@ -45,6 +50,7 @@ const advantages = [
     title: "12-ступенчатая система очистки",
     description: "Очистка реализована в 4 технологических блоках — глубже и надёжнее стандартных решений рынка.",
     details: ["Механическая предфильтрация", "Молекулярная очистка (RO)", "Минерализация, структурирование, насыщение", "Микробиологическая защита"],
+    competitorNote: "Максимум 10 ступеней очистки",
   },
   {
     icon: ShieldCheck,
@@ -52,6 +58,7 @@ const advantages = [
     title: "Двойное озонирование 2O₃",
     description: "Максимальная санитарная безопасность и дополнительное доверие покупателей.",
     details: ["Озонирование воды", "Озонирование тары клиента"],
+    competitorNote: "Одиночное озонирование — только вода",
   },
   {
     icon: Gauge,
@@ -80,6 +87,7 @@ const advantages = [
     title: "Премиальный дизайн, который продаёт",
     description: "Аппарат заметен и привлекателен в любое время суток.",
     details: ["Боковые неоновые фризы (в базовой комплектации)", "LED-подсветка", "Удалённое управление подсветкой", "Удлинённый козырёк от осадков"],
+    competitorNote: "Светящиеся фризы — за дополнительную плату",
   },
   {
     icon: Monitor,
@@ -88,6 +96,7 @@ const advantages = [
     description: "Интуитивный интерфейс с возможностью рекламы и дополнительного дохода.",
     details: ["Готовые рекламные ролики", "Обновляемый контент", "Инструкции для пользователей"],
     accent: "Все видеоролики и материалы для дисплея предоставляются бесплатно",
+    competitorNote: 'ЖКИ-дисплей 21,5" отсутствует',
   },
   {
     icon: CreditCard,
@@ -96,6 +105,7 @@ const advantages = [
     description: "Удобство для B2C и B2B-сегмента.",
     details: ["Монеты", "Банковский терминал", "QR-код", "Скидочные % карты (в базовой комплектации)"],
     benefits: ["Удалённое пополнение карт", "Индивидуальная настройка скидки", "Формирование постоянной базы клиентов", "Удобство для юридических лиц"],
+    competitorNote: "Система лояльности отсутствует",
   },
   {
     icon: Package,
@@ -103,6 +113,7 @@ const advantages = [
     title: "Полочка из нержавеющей стали",
     description: "В базовой комплектации.",
     details: [],
+    competitorNote: "Полочка — за дополнительную плату",
   },
   {
     icon: GraduationCap,
@@ -125,62 +136,6 @@ const ecosystemItems = [
   "Прозрачность бизнеса", "Инвестиционная привлекательность", "Готовая экосистема для роста"
 ];
 
-const AdvantageCard = ({ item, index }: { item: typeof advantages[0]; index: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index % 2 * 0.15 }}
-      className="glass-card-hover p-6 md:p-8 flex flex-col gap-4"
-    >
-      <div className="flex items-center gap-4">
-        <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
-          <item.icon className="w-6 h-6 text-primary" />
-        </div>
-        <h3 className="font-heading font-bold text-lg md:text-xl text-foreground">
-          <span className="text-primary mr-1">{item.number}.</span> {item.title}
-        </h3>
-      </div>
-
-      <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-
-      {item.details && item.details.length > 0 && (
-        <ul className="space-y-1.5">
-          {item.details.map((d) => (
-            <li key={d} className="flex items-start gap-2 text-sm text-muted-foreground">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-              {d}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {item.benefits && (
-        <div className="mt-1 p-4 rounded-xl bg-primary/5 border border-primary/10">
-          <p className="text-xs font-heading font-semibold text-primary mb-2">Выгоды для вас:</p>
-          <ul className="space-y-1">
-            {item.benefits.map((b) => (
-              <li key={b} className="flex items-start gap-2 text-sm text-foreground/80">
-                <span className="text-primary mt-0.5">✓</span> {b}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {item.accent && (
-        <p className="text-sm font-semibold text-primary italic mt-1">
-          💡 {item.accent}
-        </p>
-      )}
-    </motion.div>
-  );
-};
-
 const WodomatXPage = () => {
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true });
@@ -202,7 +157,6 @@ const WodomatXPage = () => {
                 transition={{ duration: 0.6 }}
                 className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16"
               >
-                {/* Image */}
                 <div className="w-full lg:w-5/12 flex justify-center">
                   <motion.img
                     src={wodomatX}
@@ -214,7 +168,6 @@ const WodomatXPage = () => {
                   />
                 </div>
 
-                {/* Info */}
                 <div className="w-full lg:w-7/12 text-center lg:text-left">
                   <span className="inline-block px-4 py-1.5 rounded-full text-sm font-heading font-semibold bg-primary/10 text-primary mb-4">
                     Каталог
@@ -229,7 +182,6 @@ const WodomatXPage = () => {
                     Комплексная система: технология, цифровой контроль, сервисная дисциплина и поддержка партнёров.
                   </p>
 
-                  {/* Specs */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
                     {[
                       { label: "Высота", value: "200 см" },
@@ -281,8 +233,13 @@ const WodomatXPage = () => {
           </section>
         </WaterBackground>
 
-        {/* Ecosystem */}
+        {/* Comparison Table */}
         <WaterBackground intensity="medium">
+          <ComparisonTable />
+        </WaterBackground>
+
+        {/* Ecosystem */}
+        <WaterBackground intensity="light">
           <section className="section-padding" ref={ecoRef}>
             <div className="container mx-auto text-center max-w-3xl">
               <motion.div
@@ -307,7 +264,6 @@ const WodomatXPage = () => {
                   ))}
                 </div>
 
-                {/* CTA */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={ecoInView ? { opacity: 1, y: 0 } : {}}
