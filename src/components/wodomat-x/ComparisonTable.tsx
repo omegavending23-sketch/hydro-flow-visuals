@@ -126,7 +126,7 @@ const ComparisonTable = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.3, delay: 0.2 + i * 0.05 }}
-                className="p-4 space-y-2"
+                className={`p-4 space-y-2 ${row.isPrice ? "bg-primary/10" : ""}`}
               >
                 <p className="font-heading font-semibold text-foreground text-sm">{row.feature}</p>
                 <div className="flex items-start gap-2 text-sm">
