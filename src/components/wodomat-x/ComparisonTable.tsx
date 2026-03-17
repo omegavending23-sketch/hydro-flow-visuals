@@ -84,10 +84,16 @@ const ComparisonTable = () => {
                       {row.feature}
                     </td>
                     <td className="p-4 md:p-5 text-center">
-                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                        <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        {row.wodomat}
-                      </span>
+                      {row.isPrice ? (
+                        <span className="inline-flex items-center gap-2 text-base font-heading font-bold text-primary">
+                          {row.wodomat}
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                          <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                          {row.wodomat}
+                        </span>
+                      )}
                     </td>
                     <td className="p-4 md:p-5 text-center">
                       {row.others === "Нет" ? (
