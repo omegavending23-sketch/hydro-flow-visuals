@@ -96,7 +96,11 @@ const ComparisonTable = () => {
                       )}
                     </td>
                     <td className="p-4 md:p-5 text-center">
-                      {row.others === "Нет" ? (
+                      {row.isPrice ? (
+                        <span className="inline-flex items-center gap-2 text-base font-heading font-bold text-destructive/80">
+                          {row.others}
+                        </span>
+                      ) : row.others === "Нет" ? (
                         <span className="inline-flex items-center gap-2 text-sm text-destructive/70">
                           <X className="w-5 h-5 flex-shrink-0" />
                           {row.others}
