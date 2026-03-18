@@ -13,8 +13,9 @@ const comparisonData: { feature: string; wodomat: string; others: string; highli
   { feature: "Неоновые фризы", wodomat: "В базовой комплектации", others: "За дополнительную плату", highlight: true },
   { feature: 'ЖКИ-дисплей 21,5"', wodomat: "Есть", others: "Нет", highlight: true },
   { feature: "Система лояльности", wodomat: "Скидочные карты в базе", others: "Нет", highlight: true },
-  { feature: "Банковский терминал", wodomat: "В базовой комплектации", others: "Подготовка за дополнительную плату", highlight: true },
+  { feature: "Подготовка под банковский терминал", wodomat: "В базовой комплектации", others: "За дополнительную плату", highlight: true },
   { feature: "Полочка из нержавеющей стали", wodomat: "В базовой комплектации", others: "За дополнительную плату", highlight: true },
+  { feature: "Козырёк от осадков", wodomat: "Входит в базовую комплектацию", others: "Нет", highlight: true },
   { feature: "Цена водомата", wodomat: "10 500 руб.", others: "ОТ 15 000 руб.", highlight: true, isPrice: true },
 ];
 
