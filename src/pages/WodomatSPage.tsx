@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import {
   Thermometer, Wifi, Bot, Filter, ShieldCheck, Gauge,
   Volume2, Lock, Sparkles, Monitor, CreditCard, Package,
-  GraduationCap, Globe, Hook,
+  GraduationCap, Globe, Anchor,
 } from "lucide-react";
 import wodomatS from "@/assets/wodomat-s.jpg";
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
