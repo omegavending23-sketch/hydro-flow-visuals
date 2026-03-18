@@ -87,7 +87,7 @@ const advantages: AdvantageItem[] = [
     title: "Премиальный дизайн, который продаёт",
     description: "Аппарат заметен и привлекателен в любое время суток.",
     details: ["Боковые неоновые фризы (в базовой комплектации)", "LED-подсветка", "Удалённое управление подсветкой", "Удлинённый козырёк от осадков"],
-    competitorNote: "Светящиеся фризы — за дополнительную плату",
+    competitorNote: "Светящиеся фризы — за дополнительную плату. Козырёк от осадков за дополнительную плату",
   },
   {
     icon: Monitor,
@@ -146,10 +146,10 @@ const WodomatXPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <div className="pt-24">
+      <div className="pt-16">
         {/* Hero */}
         <WaterBackground intensity="light">
-          <section className="section-padding" ref={heroRef}>
+          <section className="py-14 md:py-20 px-4 md:px-8" ref={heroRef}>
             <div className="container mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -207,7 +207,7 @@ const WodomatXPage = () => {
 
         {/* Advantages */}
         <WaterBackground intensity="light">
-          <section className="section-padding">
+          <section className="py-14 md:py-20 px-4 md:px-8">
             <div className="container mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -240,7 +240,7 @@ const WodomatXPage = () => {
 
         {/* Ecosystem */}
         <WaterBackground intensity="light">
-          <section className="section-padding" ref={ecoRef}>
+          <section className="py-14 md:py-20 px-4 md:px-8" ref={ecoRef}>
             <div className="container mx-auto text-center max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
