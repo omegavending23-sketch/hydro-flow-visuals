@@ -116,7 +116,7 @@ const advantages: AdvantageItem[] = [
     competitorNote: "Полочка — за дополнительную плату",
   },
   {
-    icon: Package,
+    icon: Anchor,
     number: 13,
     title: "Крючки для сумок и тары",
     description: "Для удобства клиентов в конструкции предусмотрены специальные крючки.",
