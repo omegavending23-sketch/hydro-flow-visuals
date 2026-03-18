@@ -29,7 +29,7 @@ const ComparisonTable = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="section-padding" ref={ref}>
+    <section className="py-14 md:py-20 px-4 md:px-8" ref={ref}>
       <div className="container mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

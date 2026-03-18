@@ -240,7 +240,7 @@ const WodomatXPage = () => {
 
         {/* Ecosystem */}
         <WaterBackground intensity="light">
-          <section className="section-padding" ref={ecoRef}>
+          <section className="py-14 md:py-20 px-4 md:px-8" ref={ecoRef}>
             <div className="container mx-auto text-center max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
