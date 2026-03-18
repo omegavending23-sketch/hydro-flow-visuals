@@ -207,7 +207,7 @@ const WodomatXPage = () => {
 
         {/* Advantages */}
         <WaterBackground intensity="light">
-          <section className="section-padding">
+          <section className="py-14 md:py-20 px-4 md:px-8">
             <div className="container mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
