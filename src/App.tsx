@@ -9,6 +9,7 @@ import RentalPage from "./pages/RentalPage";
 import ConsumersPage from "./pages/ConsumersPage";
 import ContactsPage from "./pages/ContactsPage";
 import WodomatXPage from "./pages/WodomatXPage";
+import WodomatSPage from "./pages/WodomatSPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
