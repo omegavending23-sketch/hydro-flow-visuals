@@ -146,10 +146,10 @@ const WodomatXPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <div className="pt-24">
+      <div className="pt-16">
         {/* Hero */}
         <WaterBackground intensity="light">
-          <section className="section-padding" ref={heroRef}>
+          <section className="py-14 md:py-20 px-4 md:px-8" ref={heroRef}>
             <div className="container mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
