@@ -111,6 +111,15 @@ const Header = () => {
                   {item.label}
                 </Link>
               ))}
+              <a
+                href="https://monitoring.wodomat.by"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="mt-2 px-5 py-3 rounded-xl font-heading text-sm font-semibold bg-white text-primary text-center border border-primary/20"
+              >
+                Мониторинг
+              </a>
               <Link
                 to="/contacts"
                 onClick={() => setIsOpen(false)}
