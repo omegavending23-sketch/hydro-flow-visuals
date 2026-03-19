@@ -67,7 +67,7 @@ const ContactsSection = () => {
                     <div className="font-heading font-semibold text-foreground">Телефоны</div>
                     <div className="text-muted-foreground">
                       Продажа оборудования: <a href="tel:+375297798080" className="hover:text-primary transition-colors">+375 29 779 80 80</a><br />
-                      Техническая поддержка: <a href="tel:+375257798080" className="hover:text-primary transition-colors">+375 25 779 80 80</a>
+                      Техническая поддержка партнёров: <a href="tel:+375257798080" className="hover:text-primary transition-colors">+375 25 779 80 80</a>
                     </div>
                   </div>
                 </div>
