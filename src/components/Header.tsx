@@ -106,9 +106,10 @@ const Header = () => {
               <Link
                 to="/contacts"
                 onClick={() => setIsOpen(false)}
-                className="mt-2 px-5 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground text-center"
+                className="relative overflow-hidden mt-2 px-5 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground text-center"
               >
-                Стать партнером
+                <span className="relative z-10">Стать партнером</span>
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
               </Link>
             </div>
           </motion.div>

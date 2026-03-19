@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 const ContactsSection = () => {
   const ref = useRef(null);
@@ -9,7 +9,6 @@ const ContactsSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission placeholder
     alert("Спасибо! Мы свяжемся с вами в ближайшее время.");
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
@@ -45,33 +44,42 @@ const ContactsSection = () => {
             className="space-y-8"
           >
             <div className="glass-card p-8">
-              <h3 className="font-heading font-bold text-xl text-foreground mb-6">Наши контакты</h3>
+              <h3 className="font-heading font-bold text-xl text-foreground mb-2">Наши контакты</h3>
+              <p className="text-muted-foreground text-sm mb-6">
+                Общество с ограниченной ответственностью «ОМЕГА ВЕНДИНГ»<br />
+                УНП 692 227 000
+              </p>
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center flex-shrink-0">
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
                     <MapPin className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
                     <div className="font-heading font-semibold text-foreground">Адрес</div>
-                    <div className="text-muted-foreground">Республика Польша</div>
+                    <div className="text-muted-foreground">Республика Беларусь, Минск,<br />ул. Тимирязева, д.67, оф.1625 (16 этаж)</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center flex-shrink-0">
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
                     <Phone className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <div className="font-heading font-semibold text-foreground">Телефон</div>
-                    <div className="text-muted-foreground">+48 XXX XXX XXX</div>
+                    <div className="font-heading font-semibold text-foreground">Телефоны</div>
+                    <div className="text-muted-foreground">
+                      Продажа оборудования: <a href="tel:+375297798080" className="hover:text-primary transition-colors">+375 29 779 80 80</a><br />
+                      Техническая поддержка: <a href="tel:+375257798080" className="hover:text-primary transition-colors">+375 25 779 80 80</a>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center flex-shrink-0">
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
                     <Mail className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
                     <div className="font-heading font-semibold text-foreground">Email</div>
-                    <div className="text-muted-foreground">info@wodomat.pl</div>
+                    <div className="text-muted-foreground">
+                      <a href="mailto:7798080@inbox.ru" className="hover:text-primary transition-colors">7798080@inbox.ru</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -82,8 +90,8 @@ const ContactsSection = () => {
               <h3 className="font-heading font-bold text-xl text-foreground mb-4">Почему WODOMAT?</h3>
               <ul className="space-y-3">
                 {[
-                  "Собственная сеть из 30+ водоматов",
-                  "Полная техническая и юридическая поддержка",
+                  "Собственная сеть из 160+ водоматов",
+                  "Техническая поддержка",
                   "Обучение и помощь в развитии бизнеса",
                   "Гарантийное и постгарантийное обслуживание",
                 ].map((item) => (
@@ -135,7 +143,7 @@ const ContactsSection = () => {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
-                  placeholder="+48 XXX XXX XXX"
+                  placeholder="+375 ХХ ХХХ ХХ ХХ"
                 />
               </div>
               <div>
@@ -152,10 +160,11 @@ const ContactsSection = () => {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2"
+                className="relative overflow-hidden w-full px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2"
               >
-                <Send className="w-5 h-5" />
-                Отправить заявку
+                <Mail className="w-5 h-5 relative z-10" />
+                <span className="relative z-10">Отправить заявку</span>
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
               </motion.button>
             </form>
           </motion.div>
