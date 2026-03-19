@@ -63,9 +63,10 @@ const Header = () => {
           ))}
           <Link
             to="/contacts"
-            className="ml-2 px-5 py-2.5 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105"
+            className="relative overflow-hidden ml-2 px-5 py-2.5 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105"
           >
-            Стать партнером
+            <span className="relative z-10">Стать партнером</span>
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
           </Link>
         </nav>
 
