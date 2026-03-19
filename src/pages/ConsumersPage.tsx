@@ -6,7 +6,7 @@ const ConsumersPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <div className="pt-24">
+      <div className="pt-[67.2px]">
         <ConsumersSection />
       </div>
       <Footer />

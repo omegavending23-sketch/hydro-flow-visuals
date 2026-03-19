@@ -80,7 +80,7 @@ const HeroSection = () => {
             className="mt-16 grid grid-cols-3 gap-6 max-w-lg"
           >
             {[
-              { value: "30+", label: "Водоматов в сети" },
+              { value: "160+", label: "Водоматов в сети" },
               { value: "17", label: "Месяцев окупаемость" },
               { value: "24/7", label: "Доступ к воде" },
             ].map((stat) => (

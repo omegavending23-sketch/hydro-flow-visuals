@@ -61,6 +61,14 @@ const Header = () => {
               {item.label}
             </Link>
           ))}
+          <a
+            href="https://monitoring.wodomat.by"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 px-5 py-2.5 rounded-xl font-heading text-sm font-semibold bg-white text-primary hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105"
+          >
+            Мониторинг
+          </a>
           <Link
             to="/contacts"
             className="relative overflow-hidden ml-2 px-5 py-2.5 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105"
