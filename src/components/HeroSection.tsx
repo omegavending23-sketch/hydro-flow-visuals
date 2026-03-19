@@ -59,15 +59,16 @@ const HeroSection = () => {
           >
             <Link
               to="/contacts"
-              className="px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 text-center"
+              className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 text-center"
             >
-              Стать партнером
+              <span className="relative z-10">Получить бизнес-план в телеграм</span>
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
             </Link>
             <Link
-              to="/catalog"
-              className="px-8 py-4 rounded-2xl font-heading font-semibold text-lg border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300 backdrop-blur-sm text-center"
+              to="/contacts"
+              className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-semibold text-lg border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300 backdrop-blur-sm text-center"
             >
-              Каталог водоматов
+              <span className="relative z-10">Получить бизнес-план на e-mail</span>
             </Link>
           </motion.div>
 
