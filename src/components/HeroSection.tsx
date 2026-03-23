@@ -1,96 +1,109 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import heroBg from "@/assets/hero-bg.jpg";
+import { CheckCircle } from "lucide-react";
+import heroImg from "@/assets/hero-vending.jpg";
+
+const theses = [
+  "Собственная сеть 160+ водоматов с 2018 года",
+  "Окупаемость от 17 месяцев",
+  "Сервис и склады в каждом областном городе",
+  "Полное сопровождение от запуска до масштабирования",
+];
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
-      <div className="absolute inset-0 hero-overlay" />
-
-      {/* Animated water blobs */}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-water-deep">
+      {/* Background blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-20 -right-20 w-96 h-96 water-drop animate-blob opacity-20" />
-        <div className="absolute top-1/3 -left-10 w-64 h-64 water-drop animate-blob-delayed opacity-15" />
-        <div className="absolute bottom-20 right-1/4 w-48 h-48 water-drop animate-float opacity-20" />
+        <div className="absolute -top-20 -right-20 w-96 h-96 water-drop animate-blob opacity-10" />
+        <div className="absolute top-1/3 -left-10 w-64 h-64 water-drop animate-blob-delayed opacity-10" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-24">
-        <div className="max-w-3xl">
+      <div className="container mx-auto px-4 relative z-10 pt-28 pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left — text */}
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block px-4 py-1.5 rounded-full text-sm font-heading font-semibold bg-primary/20 text-primary-foreground border border-primary/30 mb-6"
+            >
+              💧 WODOMAT — Аква-вендинг, проверенный на практике
+            </motion.span>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6"
+            >
+              Аква-вендинг, который мы{" "}
+              <span className="text-primary">используем сами</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-xl leading-relaxed"
+            >
+              С 2018 года развиваем собственную сеть водоматов в Беларуси
+              и помогаем предпринимателям запускать и масштабировать прибыльный
+              аква-бизнес на основе реальной практики, а не теории.
+            </motion.p>
+
+            <motion.ul
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="space-y-3 mb-10"
+            >
+              {theses.map((t) => (
+                <li key={t} className="flex items-start gap-3 text-primary-foreground/90">
+                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                  <span className="font-body">{t}</span>
+                </li>
+              ))}
+            </motion.ul>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Link
+                to="/contacts"
+                className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 text-center"
+              >
+                <span className="relative z-10">Получить бизнес-план в телеграм</span>
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
+              </Link>
+              <Link
+                to="/contacts"
+                className="px-8 py-4 rounded-2xl font-heading font-semibold text-lg border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300 backdrop-blur-sm text-center"
+              >
+                Получить бизнес-план на e-mail
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Right — image */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-heading font-semibold bg-primary/20 text-primary-foreground border border-primary/30 mb-6">
-              💧 WODOMAT — Чистая вода рядом
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-tight mb-6"
-          >
-            Вендинговые водоматы WODOMAT —{" "}
-            <span className="text-primary">будущее бизнеса</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl leading-relaxed"
+            className="hidden lg:block"
           >
-            Станьте партнёром WODOMAT и откройте прибыльный бизнес по продаже чистой питьевой воды.
-            Окупаемость от 17 месяцев, поддержка 365 дней в году.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Link
-              to="/contacts"
-              className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 text-center"
-            >
-              <span className="relative z-10">Получить бизнес-план в телеграм</span>
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
-            </Link>
-            <Link
-              to="/contacts"
-              className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-semibold text-lg border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300 backdrop-blur-sm text-center"
-            >
-              <span className="relative z-10">Получить бизнес-план на e-mail</span>
-            </Link>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 grid grid-cols-3 gap-6 max-w-lg"
-          >
-            {[
-              { value: "160+", label: "Водоматов в сети" },
-              { value: "17", label: "Месяцев окупаемость" },
-              { value: "24/7", label: "Доступ к воде" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="font-heading font-bold text-3xl md:text-4xl text-primary-foreground">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-primary-foreground/60 mt-1">{stat.label}</div>
-              </div>
-            ))}
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src={heroImg}
+                alt="Действующий водомат WODOMAT"
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-water-deep/40 to-transparent" />
+            </div>
           </motion.div>
         </div>
       </div>
