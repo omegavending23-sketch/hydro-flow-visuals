@@ -72,26 +72,6 @@ const HeroSection = () => {
             </Link>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 grid grid-cols-3 gap-6 max-w-lg"
-          >
-            {[
-              { value: "160+", label: "Водоматов в сети" },
-              { value: "17", label: "Месяцев окупаемость" },
-              { value: "24/7", label: "Доступ к воде" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="font-heading font-bold text-3xl md:text-4xl text-primary-foreground">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-primary-foreground/60 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
 
