@@ -8,10 +8,10 @@ const RSPP = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="glass-card p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 text-center md:text-left"
+        className="glass-card p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 text-center md:text-left group"
       >
-        <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-          <Award className="w-10 h-10 text-primary" />
+        <div className="w-16 h-16 rounded-xl water-gradient-bg flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
+          <Award className="w-8 h-8 text-primary-foreground" />
         </div>
         <div>
           <h3 className="font-heading font-bold text-xl text-foreground mb-2">
