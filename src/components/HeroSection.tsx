@@ -35,7 +35,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-tight mb-6"
+            className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-tight mb-6 animate-[float_5s_ease-in-out_infinite]"
           >
             Вендинговые водоматы WODOMAT —{" "}
             <span className="text-primary">будущее бизнеса</span>
