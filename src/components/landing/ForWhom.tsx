@@ -21,7 +21,7 @@ const ForWhom = () => (
         Для кого <span className="text-gradient-water">подходит</span>
       </motion.h2>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+      <div className="flex flex-wrap justify-center gap-6">
         {segments.map((s, i) => (
           <motion.div
             key={s.title}
@@ -29,7 +29,7 @@ const ForWhom = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            className="glass-card-hover p-6 flex flex-col items-start group w-full"
+            className="glass-card-hover p-6 flex flex-col items-start group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
           >
             <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
               <s.icon className="w-6 h-6 text-primary-foreground" />
