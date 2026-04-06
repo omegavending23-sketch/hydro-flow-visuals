@@ -12,22 +12,25 @@ import ForWhom from "@/components/landing/ForWhom";
 import Gallery from "@/components/landing/Gallery";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/Footer";
+import WaterBackground from "@/components/WaterBackground";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <AboutUs />
-      <RSPP />
-      <TrustNumbers />
-      <WhySafe />
-      <ClientJourney />
-      <Infrastructure />
-      <Documents />
-      <Team />
-      <ForWhom />
-      <Gallery />
+      <WaterBackground intensity="heavy" className="relative">
+        <AboutUs />
+        <RSPP />
+        <TrustNumbers />
+        <Gallery />
+        <WhySafe />
+        <ClientJourney />
+        <Infrastructure />
+        <Documents />
+        <Team />
+        <ForWhom />
+      </WaterBackground>
       <FinalCTA />
       <Footer />
     </div>

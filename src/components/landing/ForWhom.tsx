@@ -23,7 +23,7 @@ const ForWhom = () => (
           Для кого <span className="text-gradient-water">подходит</span>
         </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
           {segments.map((s, i) => (
             <motion.div
               key={s.title}
