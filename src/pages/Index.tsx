@@ -18,8 +18,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <HeroSection />
       <WaterBackground intensity="heavy" className="relative">
+        <HeroSection />
         <AboutUs />
         <RSPP />
         <TrustNumbers />
@@ -30,8 +30,8 @@ const Index = () => {
         <Documents />
         <Team />
         <ForWhom />
+        <FinalCTA />
       </WaterBackground>
-      <FinalCTA />
       <Footer />
     </div>
   );
