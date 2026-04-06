@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Rocket, Store, PiggyBank, Building2, Lightbulb } from "lucide-react";
-import WaterBackground from "../WaterBackground";
 
 const segments = [
   { icon: Rocket, title: "Начинающие предприниматели", desc: "Ищете первый бизнес с прозрачной экономикой и быстрым стартом." },
@@ -11,39 +10,37 @@ const segments = [
 ];
 
 const ForWhom = () => (
-  <WaterBackground intensity="light">
-    <section className="section-padding bg-background">
-      <div className="container mx-auto max-w-5xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-heading font-bold text-3xl md:text-4xl text-center text-foreground mb-14"
-        >
-          Для кого <span className="text-gradient-water">подходит</span>
-        </motion.h2>
+  <section className="section-padding bg-background">
+    <div className="container mx-auto max-w-5xl">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="font-heading font-bold text-3xl md:text-4xl text-center text-foreground mb-14"
+      >
+        Для кого <span className="text-gradient-water">подходит</span>
+      </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {segments.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="glass-card-hover p-6 flex flex-col items-start group"
-            >
-              <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
-                <s.icon className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <h3 className="font-heading font-bold text-foreground mb-1">{s.title}</h3>
-              <p className="text-muted-foreground text-sm">{s.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+        {segments.map((s, i) => (
+          <motion.div
+            key={s.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08 }}
+            className="glass-card-hover p-6 flex flex-col items-start group w-full"
+          >
+            <div className="w-12 h-12 rounded-xl water-gradient-bg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
+              <s.icon className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <h3 className="font-heading font-bold text-foreground mb-1">{s.title}</h3>
+            <p className="text-muted-foreground text-sm">{s.desc}</p>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  </WaterBackground>
+    </div>
+  </section>
 );
 
 export default ForWhom;
