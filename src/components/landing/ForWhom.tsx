@@ -10,7 +10,7 @@ const segments = [
 ];
 
 const ForWhom = () => (
-  <section className="section-padding bg-background">
+  <section className="section-padding bg-muted/50">
     <div className="container mx-auto max-w-5xl">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}

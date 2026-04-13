@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import rsppLogo from "@/assets/rspp-logo.png";
 
 const RSPP = () => (
-  <section className="py-12 px-4 bg-background">
+  <section className="py-12 px-4 bg-muted/50">
     <div className="container mx-auto max-w-3xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

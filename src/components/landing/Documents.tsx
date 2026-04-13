@@ -9,7 +9,7 @@ const docs = [
 ];
 
 const Documents = () => (
-  <section className="section-padding bg-background">
+  <section className="section-padding bg-muted/50">
     <div className="container mx-auto max-w-4xl">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
