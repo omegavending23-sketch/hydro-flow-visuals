@@ -17,7 +17,7 @@ import WaterBackground from "@/components/WaterBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background home-tight">
       <Header />
       <WaterBackground intensity="heavy" className="relative">
         <HeroSection />

@@ -27,7 +27,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full text-sm font-heading font-semibold bg-primary/20 text-primary-foreground border border-primary/30 mb-6">
-              💧 WODOMAT — Чистая вода рядом
+              💧 ВОДОМАТ — Свежая вода рядом
             </span>
           </motion.div>
 
@@ -37,7 +37,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-primary-foreground leading-tight mb-6 animate-[float-subtle_5s_ease-in-out_infinite]"
           >
-            Вендинговые водоматы WODOMAT —{" "}
+            Вендинговые водоматы ВОДОМАТ —{" "}
             <span className="text-primary">будущее бизнеса</span>
           </motion.h1>
 
@@ -47,7 +47,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl leading-relaxed animate-[float-subtle_4s_ease-in-out_infinite]"
           >
-            Станьте партнёром WODOMAT и откройте прибыльный бизнес по продаже чистой питьевой воды.
+            Станьте партнёром ВОДОМАТ и откройте прибыльный бизнес по продаже свежей питьевой воды.
           </motion.p>
 
           <motion.div
