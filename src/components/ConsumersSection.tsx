@@ -9,7 +9,7 @@ const advantages = [
   { icon: Recycle, title: "Экологичность", desc: "Используйте свою тару — сокращайте пластиковые отходы" },
   { icon: MapPin, title: "Удобное расположение", desc: "Водоматы рядом с вашим домом, в шаговой доступности" },
   { icon: CreditCard, title: "Доступная цена", desc: "Значительно дешевле бутилированной воды из магазина" },
-  { icon: Clock, title: "Доступ 24/7", desc: "Покупайте чистую воду в любое время дня и ночи" },
+  { icon: Clock, title: "Доступ 24/7", desc: "Покупайте свежую воду в любое время дня и ночи" },
 ];
 
 const steps = [
@@ -36,7 +36,7 @@ const ConsumersSection = () => {
               Для потребителей
             </span>
             <h2 className="font-heading font-bold text-3xl md:text-5xl text-foreground mb-4">
-              Чистая вода — <span className="text-gradient-water">просто и удобно</span>
+              Свежая вода — <span className="text-gradient-water">просто и удобно</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Здоровая, свежая и доступная вода прямо рядом с вашим домом

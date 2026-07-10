@@ -9,12 +9,12 @@ const Footer = () => {
           <Link to="/" className="flex items-center gap-2">
             <Droplets className="w-6 h-6 text-primary" />
             <span className="font-heading font-bold text-lg">
-              <span className="text-primary">WODO</span>
-              <span className="text-foreground">MAT</span>
+              <span className="text-primary">ВОДО</span>
+              <span className="text-foreground">МАТ</span>
             </span>
           </Link>
           <p className="text-muted-foreground text-sm text-center">
-            © {new Date().getFullYear()} WODOMAT. Чистая вода рядом с вашим домом.
+            © {new Date().getFullYear()} ВОДОМАТ. Свежая вода рядом с вашим домом.
           </p>
           <div className="flex gap-6">
             {[

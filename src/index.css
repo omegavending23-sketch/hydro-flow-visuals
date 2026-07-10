@@ -122,6 +122,10 @@
     @apply py-20 md:py-28 px-4 md:px-8;
   }
 
+  .home-tight .section-padding {
+    @apply py-14 md:py-20;
+  }
+
   .water-drop {
     @apply rounded-full;
     background: radial-gradient(circle at 30% 30%, hsl(199 100% 80% / 0.8), hsl(199 100% 44% / 0.4));

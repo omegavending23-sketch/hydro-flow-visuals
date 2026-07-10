@@ -39,8 +39,8 @@ const Header = () => {
         <Link to="/" className="flex items-center gap-2 group">
           <Droplets className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
           <span className="font-heading font-bold text-xl tracking-tight">
-            <span className="text-primary">WODO</span>
-            <span className={scrolled || !isHome ? "text-foreground" : "text-primary-foreground"}>MAT</span>
+            <span className="text-primary">ВОДО</span>
+            <span className={scrolled || !isHome ? "text-foreground" : "text-primary-foreground"}>МАТ</span>
           </span>
         </Link>
 
