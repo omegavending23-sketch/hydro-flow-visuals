@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutUs from "@/components/landing/AboutUs";
 import RSPP from "@/components/landing/RSPP";
 import TrustNumbers from "@/components/landing/TrustNumbers";
+import PurificationVideo from "@/components/landing/PurificationVideo";
 import WhySafe from "@/components/landing/WhySafe";
 import ClientJourney from "@/components/landing/ClientJourney";
 import Infrastructure from "@/components/landing/Infrastructure";
@@ -22,6 +23,7 @@ const Index = () => {
         <HeroSection />
         <AboutUs />
         <RSPP />
+        <PurificationVideo />
         <TrustNumbers />
         <Gallery />
         <WhySafe />
