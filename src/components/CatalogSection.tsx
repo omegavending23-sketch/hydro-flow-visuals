@@ -9,7 +9,7 @@ const wodomatX = wodomatXAsset.url;
 import WaterBackground from "./WaterBackground";
 
 const features = [
-  { icon: Droplets, title: "10 этапов фильтрации", desc: "Многоступенчатая очистка и минерализация воды" },
+  { icon: Droplets, title: "12 этапов фильтрации", desc: "Многоступенчатая очистка и минерализация воды" },
   { icon: Shield, title: "Без вредных примесей", desc: "Очищена от тяжёлых металлов, вирусов и бактерий" },
   { icon: Zap, title: "Озонирование", desc: "Ёмкости проходят обработку озоном" },
   { icon: Leaf, title: "Экологичность", desc: "Меньше пластиковых бутылок — чище планета" },
