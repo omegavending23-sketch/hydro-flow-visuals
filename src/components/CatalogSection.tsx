@@ -3,8 +3,9 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Zap, Droplets, Leaf, Clock, Award } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import wodomatX from "@/assets/wodomat-x.jpg";
+import wodomatXAsset from "@/assets/wodomat-x3.png.asset.json";
 import wodomatS from "@/assets/wodomat-s.jpg";
+const wodomatX = wodomatXAsset.url;
 import WaterBackground from "./WaterBackground";
 
 const features = [
