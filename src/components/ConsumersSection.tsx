@@ -4,7 +4,7 @@ import { Droplets, Heart, Recycle, MapPin, CreditCard, Clock } from "lucide-reac
 import WaterBackground from "./WaterBackground";
 
 const advantages = [
-  { icon: Droplets, title: "Чистая и вкусная вода", desc: "10 этапов фильтрации и минерализация для идеального вкуса" },
+  { icon: Droplets, title: "Свежая и вкусная вода", desc: "12 этапов фильтрации и минерализация для идеального вкуса" },
   { icon: Heart, title: "Полезно для здоровья", desc: "Можно пить без кипячения, оптимальный уровень минералов" },
   { icon: Recycle, title: "Экологичность", desc: "Используйте свою тару — сокращайте пластиковые отходы" },
   { icon: MapPin, title: "Удобное расположение", desc: "Водоматы рядом с вашим домом, в шаговой доступности" },
