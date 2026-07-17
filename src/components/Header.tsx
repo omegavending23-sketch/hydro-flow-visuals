@@ -62,7 +62,7 @@ const Header = () => {
             </Link>
           ))}
           <a
-            href="https://monitoring.wodomat.by"
+            href="https://cloudwodomat.by/"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 px-5 py-2.5 rounded-xl font-heading text-sm font-semibold bg-white text-primary hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105"
@@ -112,7 +112,7 @@ const Header = () => {
                 </Link>
               ))}
               <a
-                href="https://monitoring.wodomat.by"
+                href="https://cloudwodomat.by/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
