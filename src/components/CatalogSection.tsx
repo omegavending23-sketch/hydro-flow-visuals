@@ -3,12 +3,13 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Zap, Droplets, Leaf, Clock, Award } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import wodomatX from "@/assets/wodomat-x.jpg";
+import wodomatXAsset from "@/assets/wodomat-x3.png.asset.json";
 import wodomatS from "@/assets/wodomat-s.jpg";
+const wodomatX = wodomatXAsset.url;
 import WaterBackground from "./WaterBackground";
 
 const features = [
-  { icon: Droplets, title: "10 этапов фильтрации", desc: "Многоступенчатая очистка и минерализация воды" },
+  { icon: Droplets, title: "12 этапов фильтрации", desc: "Многоступенчатая очистка и минерализация воды" },
   { icon: Shield, title: "Без вредных примесей", desc: "Очищена от тяжёлых металлов, вирусов и бактерий" },
   { icon: Zap, title: "Озонирование", desc: "Ёмкости проходят обработку озоном" },
   { icon: Leaf, title: "Экологичность", desc: "Меньше пластиковых бутылок — чище планета" },
@@ -23,7 +24,7 @@ const products = [
     subtitle: "Премиальный интеллектуальный водомат для стабильного и масштабируемого бизнеса вашей собственной сети",
     description: "Комплексная система: технология, цифровой контроль, сервисная дисциплина и поддержка партнёров.",
     dimensions: "Высота 200 см · Глубина 85 см · Ширина 85 см",
-    price: "10 500 руб.",
+    price: "11 450 руб.",
     link: "/catalog/wodomat-x",
   },
   {
@@ -32,7 +33,7 @@ const products = [
     subtitle: "Компактное профессиональное решение для аква-вендинга",
     description: "Комплексная система, объединяющая современные технологии очистки воды, цифровой контроль работы оборудования, удобные инструменты управления бизнесом и полноценную поддержку партнёров.\n\nМодель разработана специально для настенного размещения на фасадах зданий, что позволяет эффективно использовать пространство и устанавливать оборудование даже в местах с ограниченной площадью.",
     dimensions: "Высота 170 см · Глубина 85 см · Ширина 60 см",
-    price: "9 800 руб.",
+    price: "10 450 руб.",
     link: "/catalog/wodomat-s",
   },
 ];

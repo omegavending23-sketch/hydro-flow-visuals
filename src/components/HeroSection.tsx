@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBgAsset from "@/assets/hero-new.jpg.asset.json";
+const heroBg = heroBgAsset.url;
 
 const HeroSection = () => {
   return (
