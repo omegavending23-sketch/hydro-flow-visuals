@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { openLeadForm } from "@/components/LeadFormDialog";
 
 const FinalCTA = () => (
   <section className="py-20 md:py-28 px-4 bg-water-deep text-primary-foreground">
@@ -27,13 +28,14 @@ const FinalCTA = () => (
         viewport={{ once: true }}
         className="flex flex-col sm:flex-row gap-4 justify-center"
       >
-        <Link
-          to="/contacts"
+        <button
+          type="button"
+          onClick={() => openLeadForm()}
           className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
         >
           <span className="relative z-10">Оставить заявку</span>
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
-        </Link>
+        </button>
         <Link
           to="/contacts"
           className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary-foreground/10 border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300"
@@ -41,12 +43,13 @@ const FinalCTA = () => (
           <span className="relative z-10">Бизнес-план в телеграм</span>
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite_0.5s]" />
         </Link>
-        <Link
-          to="/contacts"
+        <button
+          type="button"
+          onClick={() => openLeadForm()}
           className="px-8 py-4 rounded-2xl font-heading font-semibold text-lg border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-300"
         >
           Бизнес-план на e-mail
-        </Link>
+        </button>
       </motion.div>
     </div>
   </section>
