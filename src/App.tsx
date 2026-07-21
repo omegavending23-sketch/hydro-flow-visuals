@@ -12,6 +12,7 @@ import ContactsPage from "./pages/ContactsPage";
 import WodomatXPage from "./pages/WodomatXPage";
 import WodomatSPage from "./pages/WodomatSPage";
 import NotFound from "./pages/NotFound";
+import LeadFormDialog from "@/components/LeadFormDialog";
 
 const queryClient = new QueryClient();
 
