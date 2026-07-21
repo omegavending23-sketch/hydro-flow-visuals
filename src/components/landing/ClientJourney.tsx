@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { openLeadForm } from "@/components/LeadFormDialog";
 import { Search, MapPin, Truck, GraduationCap, Settings } from "lucide-react";
 
 const steps = [
