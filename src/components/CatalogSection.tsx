@@ -7,6 +7,7 @@ import wodomatXAsset from "@/assets/wodomat-x3.png.asset.json";
 import wodomatS from "@/assets/wodomat-s.jpg";
 const wodomatX = wodomatXAsset.url;
 import WaterBackground from "./WaterBackground";
+import { openLeadForm } from "@/components/LeadFormDialog";
 
 const features = [
   { icon: Droplets, title: "12 этапов фильтрации", desc: "Многоступенчатая очистка и минерализация воды" },
