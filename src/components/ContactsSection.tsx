@@ -1,16 +1,47 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "sonner";
 
 const ContactsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [agree, setAgree] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Спасибо! Мы свяжемся с вами в ближайшее время.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    if (!agree) {
+      toast.error("Необходимо согласие на обработку персональных данных");
+      return;
+    }
+    const phoneClean = formData.phone.replace(/[\s\-()]/g, "");
+    if (formData.phone && !/^\+\d{10,15}$/.test(phoneClean)) {
+      toast.error("Некорректный формат телефона");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/7798080@inbox.ru", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          _subject: "Новая заявка с сайта ВОДОМАТ",
+          _template: "table",
+        }),
+      });
+      if (!res.ok) throw new Error();
+      toast.success("Спасибо! Мы свяжемся с вами в ближайшее время.");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+      setAgree(false);
+    } catch {
+      toast.error("Не удалось отправить заявку. Попробуйте позже.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -156,14 +187,26 @@ const ContactsSection = () => {
                   placeholder="Расскажите о вашем интересе..."
                 />
               </div>
+              <div className="flex items-start gap-2.5">
+                <Checkbox
+                  id="contact-agree"
+                  checked={agree}
+                  onCheckedChange={(c) => setAgree(c === true)}
+                  className="mt-0.5"
+                />
+                <label htmlFor="contact-agree" className="text-xs text-muted-foreground leading-snug cursor-pointer">
+                  Нажимая кнопку «Отправить заявку», я принимаю условия пользовательского соглашения и даю согласие на обработку моих персональных данных.
+                </label>
+              </div>
               <motion.button
                 type="submit"
+                disabled={submitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative overflow-hidden w-full px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2"
+                className="relative overflow-hidden w-full px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60"
               >
                 <Mail className="w-5 h-5 relative z-10" />
-                <span className="relative z-10">Отправить заявку</span>
+                <span className="relative z-10">{submitting ? "Отправка..." : "Отправить заявку"}</span>
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
               </motion.button>
             </form>

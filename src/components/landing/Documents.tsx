@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { openLeadForm } from "@/components/LeadFormDialog";
 import { FileCheck, FileText, ClipboardCheck, BookOpen } from "lucide-react";
 
 const docs = [
@@ -60,12 +61,13 @@ const Documents = () => (
           <span className="relative z-10">Получить бизнес-план в телеграм</span>
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
         </Link>
-        <Link
-          to="/contacts"
+        <button
+          type="button"
+          onClick={() => openLeadForm()}
           className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-semibold text-lg border-2 border-primary/30 text-foreground hover:bg-primary/10 transition-all duration-300 backdrop-blur-sm text-center"
         >
           <span className="relative z-10">Получить бизнес-план на e-mail</span>
-        </Link>
+        </button>
       </motion.div>
     </div>
   </section>

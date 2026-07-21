@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Droplets, Heart, Recycle, MapPin, CreditCard, Clock } from "lucide-react";
 import WaterBackground from "./WaterBackground";
+import PurificationVideo from "./landing/PurificationVideo";
 
 const advantages = [
   { icon: Droplets, title: "Свежая и вкусная вода", desc: "12 этапов фильтрации и минерализация для идеального вкуса" },
@@ -64,7 +65,13 @@ const ConsumersSection = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
+      <PurificationVideo />
+
+      <section className="section-padding" aria-label="Преимущества для потребителей">
+        <div className="container mx-auto">
           {/* Advantages grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map((adv, i) => (

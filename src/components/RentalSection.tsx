@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle, TrendingUp, Headphones, BookOpen, Scale, Calculator } from "lucide-react";
+import { openLeadForm } from "@/components/LeadFormDialog";
 
 const benefits = [
   { icon: TrendingUp, title: "Быстрая окупаемость", desc: "Возврат инвестиций уже через 17-18 месяцев" },
@@ -63,33 +64,17 @@ const RentalSection = () => {
 
         {/* CTA Card */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="glass-card p-8 md:p-12 text-center max-w-3xl mx-auto"
+          className="text-center"
         >
-          <h3 className="font-heading font-bold text-2xl md:text-3xl text-foreground mb-4">
-            Начните зарабатывать с WODOMAT
-          </h3>
-          <div className="grid grid-cols-3 gap-4 mb-8">
-            <div>
-              <div className="font-heading font-bold text-2xl md:text-3xl text-primary">30+</div>
-              <div className="text-sm text-muted-foreground">Водоматов в сети</div>
-            </div>
-            <div>
-              <div className="font-heading font-bold text-2xl md:text-3xl text-primary">17-18</div>
-              <div className="text-sm text-muted-foreground">Мес. окупаемость</div>
-            </div>
-            <div>
-              <div className="font-heading font-bold text-2xl md:text-3xl text-primary">14 600</div>
-              <div className="text-sm text-muted-foreground">Злотых инвестиции</div>
-            </div>
-          </div>
           <button
-            onClick={() => window.location.href = "/contacts"}
-            className="px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
+            onClick={() => openLeadForm()}
+            className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
           >
-            Обсудить условия
+            <span className="relative z-10">Обсудить условия</span>
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
           </button>
         </motion.div>
       </div>

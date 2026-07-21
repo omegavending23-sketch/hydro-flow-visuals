@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { openLeadForm } from "@/components/LeadFormDialog";
 import { Search, MapPin, Truck, GraduationCap, Settings } from "lucide-react";
 
 const steps = [
@@ -68,13 +68,14 @@ const ClientJourney = () => (
       </div>
 
       <div className="text-center">
-        <Link
-          to="/contacts"
+        <button
+          type="button"
+          onClick={() => openLeadForm()}
           className="relative overflow-hidden inline-block px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
         >
           <span className="relative z-10">Обсудить запуск</span>
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
-        </Link>
+        </button>
       </div>
     </div>
   </section>

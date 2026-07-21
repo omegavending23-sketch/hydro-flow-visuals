@@ -13,6 +13,7 @@ import {
 import wodomatX from "@/assets/wodomat-x.jpg";
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTable from "@/components/wodomat-x/ComparisonTable";
+import { openLeadForm } from "@/components/LeadFormDialog";
 
 const advantages: AdvantageItem[] = [
   {
@@ -271,7 +272,7 @@ const WodomatXPage = () => {
                   transition={{ duration: 0.5, delay: 0.8 }}
                 >
                   <button
-                    onClick={() => navigate("/contacts")}
+                    onClick={() => openLeadForm()}
                     className="relative overflow-hidden px-12 py-4 rounded-xl font-heading text-lg font-bold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-lg hover:scale-105"
                   >
                     <span className="relative z-10">ЗАКАЗАТЬ WODOMAT X</span>
