@@ -157,7 +157,7 @@ const CatalogSection = () => {
             <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
               Мы поможем вам выбрать лучший вариант водомата исходя из ваших потребностей
             </p>
-            <button className="relative overflow-hidden px-10 py-4 rounded-xl font-heading text-base font-semibold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <button onClick={() => openLeadForm()} className="relative overflow-hidden px-10 py-4 rounded-xl font-heading text-base font-semibold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-lg hover:scale-105">
               <span className="relative z-10">Получить консультацию</span>
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
             </button>
