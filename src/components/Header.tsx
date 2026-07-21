@@ -62,6 +62,15 @@ const Header = () => {
             </Link>
           ))}
           <a
+            href="tel:+375297798080"
+            className={`ml-2 hidden lg:flex flex-col leading-tight text-xs text-right ${
+              scrolled || !isHome ? "text-foreground" : "text-primary-foreground"
+            }`}
+          >
+            <span className="opacity-80">Отдел продаж оборудования</span>
+            <span className="font-bold text-sm">+ 375 29 779 80 80</span>
+          </a>
+          <a
             href="https://cloudwodomat.by/"
             target="_blank"
             rel="noopener noreferrer"
