@@ -65,7 +65,13 @@ const ConsumersSection = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
+      <PurificationVideo />
+
+      <section className="section-padding" aria-label="Преимущества для потребителей">
+        <div className="container mx-auto">
           {/* Advantages grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map((adv, i) => (
