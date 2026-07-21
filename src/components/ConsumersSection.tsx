@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Droplets, Heart, Recycle, MapPin, CreditCard, Clock } from "lucide-react";
 import WaterBackground from "./WaterBackground";
+import PurificationVideo from "./landing/PurificationVideo";
 
 const advantages = [
   { icon: Droplets, title: "Свежая и вкусная вода", desc: "12 этапов фильтрации и минерализация для идеального вкуса" },
