@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle, TrendingUp, Headphones, BookOpen, Scale, Calculator } from "lucide-react";
+import { openLeadForm } from "@/components/LeadFormDialog";
 
 const benefits = [
   { icon: TrendingUp, title: "Быстрая окупаемость", desc: "Возврат инвестиций уже через 17-18 месяцев" },
