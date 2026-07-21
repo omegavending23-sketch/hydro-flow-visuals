@@ -13,6 +13,7 @@ import {
 import wodomatS from "@/assets/wodomat-s.jpg";
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTableS from "@/components/wodomat-s/ComparisonTableS";
+import { openLeadForm } from "@/components/LeadFormDialog";
 
 const advantages: AdvantageItem[] = [
   {
