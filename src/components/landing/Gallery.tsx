@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { openLeadForm } from "@/components/LeadFormDialog";
 import heroVending from "@/assets/hero-vending.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 
