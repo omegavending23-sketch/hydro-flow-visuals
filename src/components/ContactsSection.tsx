@@ -187,14 +187,26 @@ const ContactsSection = () => {
                   placeholder="Расскажите о вашем интересе..."
                 />
               </div>
+              <div className="flex items-start gap-2.5">
+                <Checkbox
+                  id="contact-agree"
+                  checked={agree}
+                  onCheckedChange={(c) => setAgree(c === true)}
+                  className="mt-0.5"
+                />
+                <label htmlFor="contact-agree" className="text-xs text-muted-foreground leading-snug cursor-pointer">
+                  Нажимая кнопку «Отправить заявку», я принимаю условия пользовательского соглашения и даю согласие на обработку моих персональных данных.
+                </label>
+              </div>
               <motion.button
                 type="submit"
+                disabled={submitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative overflow-hidden w-full px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2"
+                className="relative overflow-hidden w-full px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60"
               >
                 <Mail className="w-5 h-5 relative z-10" />
-                <span className="relative z-10">Отправить заявку</span>
+                <span className="relative z-10">{submitting ? "Отправка..." : "Отправить заявку"}</span>
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
               </motion.button>
             </form>
