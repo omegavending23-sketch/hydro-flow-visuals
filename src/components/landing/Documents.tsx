@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { openLeadForm } from "@/components/LeadFormDialog";
 import { FileCheck, FileText, ClipboardCheck, BookOpen } from "lucide-react";
 
 const docs = [
