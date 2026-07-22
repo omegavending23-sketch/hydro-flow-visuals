@@ -16,7 +16,7 @@ const comparisonData: { feature: string; wodomat: string; others: string; highli
   { feature: "Подготовка под банковский терминал", wodomat: "В базовой комплектации", others: "За дополнительную плату", highlight: true },
   { feature: "Полочка из нержавеющей стали", wodomat: "В базовой комплектации", others: "За дополнительную плату", highlight: true },
   { feature: "Козырёк от осадков", wodomat: "Входит в базовую комплектацию", others: "Нет", highlight: true },
-  { feature: "Цена водомата", wodomat: "10 500 руб.", others: "ОТ 15 000 руб.", highlight: true, isPrice: true },
+  { feature: "Цена водомата", wodomat: "11 450 руб.", others: "ОТ 15 000 руб.", highlight: true, isPrice: true },
 ];
 
 const getIcon = (value: string) => {
