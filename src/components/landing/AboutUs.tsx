@@ -40,7 +40,7 @@ const AboutUs = () => (
         >
           <motion.img
             src={logoWodomat}
-            alt="WODOMAT"
+            alt="Водоматы ВОДОМАТ"
             className="max-w-xs w-full rounded-2xl shadow-xl cursor-pointer animate-[float-subtle_5s_ease-in-out_infinite]"
             whileHover={{ scale: 1.05, rotate: 2 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
