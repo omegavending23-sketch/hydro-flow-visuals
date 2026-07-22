@@ -194,9 +194,9 @@ const WodomatSPage = () => {
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
                     {[
                       { label: "Высота", value: "170 см" },
-                      { label: "Глубина", value: "85 см" },
-                      { label: "Ширина", value: "60 см" },
-                      { label: "Вес", value: "125 кг" },
+                      { label: "Глубина", value: "70 см" },
+                      { label: "Ширина", value: "80 см" },
+                      { label: "Вес", value: "158 кг" },
                     ].map((s) => (
                       <div key={s.label} className="glass-card p-3 text-center rounded-xl">
                         <p className="text-xs text-muted-foreground">{s.label}</p>
@@ -206,7 +206,7 @@ const WodomatSPage = () => {
                   </div>
 
                   <p className="font-heading font-bold text-3xl md:text-4xl text-foreground">
-                    9 800 руб.
+                    10 450 руб.
                   </p>
                 </div>
               </motion.div>
