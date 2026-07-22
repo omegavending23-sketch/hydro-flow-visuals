@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import logoWodomat from "@/assets/logo-wodomat.jpg";
+import logoVodomatAsset from "@/assets/logo-vodomat.jpg.asset.json";
+const logoWodomat = logoVodomatAsset.url;
 
 const AboutUs = () => (
   <section className="section-padding bg-muted/50">
@@ -39,7 +40,7 @@ const AboutUs = () => (
         >
           <motion.img
             src={logoWodomat}
-            alt="WODOMAT"
+            alt="Водоматы ВОДОМАТ"
             className="max-w-xs w-full rounded-2xl shadow-xl cursor-pointer animate-[float-subtle_5s_ease-in-out_infinite]"
             whileHover={{ scale: 1.05, rotate: 2 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}

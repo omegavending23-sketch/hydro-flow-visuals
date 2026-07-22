@@ -118,7 +118,7 @@ const ContactsSection = () => {
 
             {/* Trust badges */}
             <div className="glass-card p-8">
-              <h3 className="font-heading font-bold text-xl text-foreground mb-4">Почему WODOMAT?</h3>
+              <h3 className="font-heading font-bold text-xl text-foreground mb-4">Почему ВОДОМАТ?</h3>
               <ul className="space-y-3">
                 {[
                   "Собственная сеть из 160+ водоматов",
