@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import logoWodomat from "@/assets/logo-wodomat.jpg";
+import logoVodomatAsset from "@/assets/logo-vodomat.jpg.asset.json";
+const logoWodomat = logoVodomatAsset.url;
 
 const AboutUs = () => (
   <section className="section-padding bg-muted/50">
