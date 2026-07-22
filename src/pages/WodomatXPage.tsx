@@ -10,7 +10,13 @@ import {
   Volume2, Lock, Sparkles, Monitor, CreditCard, Package,
   GraduationCap, Globe
 } from "lucide-react";
-import wodomatX from "@/assets/wodomat-x.jpg";
+import { useState } from "react";
+import x2Asset from "@/assets/x2.png.asset.json";
+import x3Asset from "@/assets/wodomat-x3.png.asset.json";
+import x4Asset from "@/assets/x4.png.asset.json";
+import x5Asset from "@/assets/x5.jpg.asset.json";
+import x6Asset from "@/assets/x6.jpg.asset.json";
+const galleryImages = [x3Asset.url, x2Asset.url, x4Asset.url, x5Asset.url, x6Asset.url];
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTable from "@/components/wodomat-x/ComparisonTable";
 import { openLeadForm } from "@/components/LeadFormDialog";
@@ -144,6 +150,7 @@ const WodomatXPage = () => {
   const ecoRef = useRef(null);
   const ecoInView = useInView(ecoRef, { once: true, margin: "-80px" });
   const navigate = useNavigate();
+  const [activeImage, setActiveImage] = useState(galleryImages[0]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -159,14 +166,26 @@ const WodomatXPage = () => {
                 transition={{ duration: 0.6 }}
                 className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16"
               >
-                <div className="w-full lg:w-5/12 flex justify-center">
+                <div className="w-full lg:w-5/12 flex justify-center gap-4">
+                  <div className="flex flex-col gap-3">
+                    {galleryImages.slice(1).map((src) => (
+                      <button
+                        key={src}
+                        onClick={() => setActiveImage(src)}
+                        className={`w-16 h-20 md:w-20 md:h-24 rounded-lg overflow-hidden border-2 transition-all bg-white/40 ${activeImage === src ? "border-primary shadow-md" : "border-transparent hover:border-primary/40"}`}
+                      >
+                        <img src={src} alt="водомат WODOMAT X" className="w-full h-full object-contain" />
+                      </button>
+                    ))}
+                  </div>
                   <motion.img
-                    src={wodomatX}
-                    alt="WODOMAT X"
+                    key={activeImage}
+                    src={activeImage}
+                    alt="водомат WODOMAT X"
                     className="h-[350px] md:h-[480px] object-contain drop-shadow-2xl"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={heroInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
                   />
                 </div>
 
@@ -189,7 +208,7 @@ const WodomatXPage = () => {
                       { label: "Высота", value: "200 см" },
                       { label: "Глубина", value: "85 см" },
                       { label: "Ширина", value: "85 см" },
-                      { label: "Вес", value: "180 кг" },
+                      { label: "Вес", value: "187 кг" },
                     ].map((s) => (
                       <div key={s.label} className="glass-card p-3 text-center rounded-xl">
                         <p className="text-xs text-muted-foreground">{s.label}</p>
@@ -199,7 +218,7 @@ const WodomatXPage = () => {
                   </div>
 
                   <p className="font-heading font-bold text-3xl md:text-4xl text-foreground">
-                    10 500 руб.
+                    11 450 руб.
                   </p>
                 </div>
               </motion.div>
