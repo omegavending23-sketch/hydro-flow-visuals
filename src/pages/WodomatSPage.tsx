@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WaterBackground from "@/components/WaterBackground";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import {
@@ -10,7 +10,10 @@ import {
   Volume2, Lock, Sparkles, Monitor, CreditCard, Package,
   GraduationCap, Globe, Anchor,
 } from "lucide-react";
-import wodomatS from "@/assets/wodomat-s.jpg";
+import sFrontAsset from "@/assets/s-ai-front.png.asset.json";
+import sLeftAsset from "@/assets/s-ai-left.png.asset.json";
+import sRightAsset from "@/assets/s-ai-right.png.asset.json";
+const sGallery = [sFrontAsset.url, sLeftAsset.url, sRightAsset.url];
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTableS from "@/components/wodomat-s/ComparisonTableS";
 import { openLeadForm } from "@/components/LeadFormDialog";
@@ -151,6 +154,7 @@ const WodomatSPage = () => {
   const ecoRef = useRef(null);
   const ecoInView = useInView(ecoRef, { once: true, margin: "-80px" });
   const navigate = useNavigate();
+  const [activeImage, setActiveImage] = useState(sGallery[0]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -166,14 +170,26 @@ const WodomatSPage = () => {
                 transition={{ duration: 0.6 }}
                 className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16"
               >
-                <div className="w-full lg:w-5/12 flex justify-center">
+                <div className="w-full lg:w-5/12 flex justify-center gap-4">
+                  <div className="flex flex-col gap-3">
+                    {sGallery.map((src) => (
+                      <button
+                        key={src}
+                        onClick={() => setActiveImage(src)}
+                        className={`w-16 h-20 md:w-20 md:h-24 rounded-lg overflow-hidden border-2 transition-all bg-white/40 ${activeImage === src ? "border-primary shadow-md" : "border-transparent hover:border-primary/40"}`}
+                      >
+                        <img src={src} alt="водомат WODOMAT S" className="w-full h-full object-contain" />
+                      </button>
+                    ))}
+                  </div>
                   <motion.img
-                    src={wodomatS}
-                    alt="WODOMAT S"
+                    key={activeImage}
+                    src={activeImage}
+                    alt="водомат WODOMAT S"
                     className="h-[350px] md:h-[480px] object-contain drop-shadow-2xl"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={heroInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
                   />
                 </div>
 
