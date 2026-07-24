@@ -4,8 +4,9 @@ import { useRef } from "react";
 import { Shield, Zap, Droplets, Leaf, Clock, Award } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import wodomatXAsset from "@/assets/wodomat-x3.png.asset.json";
-import wodomatS from "@/assets/wodomat-s.jpg";
+import wodomatSAsset from "@/assets/s-ai-front.png.asset.json";
 const wodomatX = wodomatXAsset.url;
+const wodomatS = wodomatSAsset.url;
 import WaterBackground from "./WaterBackground";
 import { openLeadForm } from "@/components/LeadFormDialog";
 

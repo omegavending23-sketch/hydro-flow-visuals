@@ -168,7 +168,7 @@ const WodomatXPage = () => {
               >
                 <div className="w-full lg:w-5/12 flex justify-center gap-4">
                   <div className="flex flex-col gap-3">
-                    {galleryImages.slice(1).map((src) => (
+                    {galleryImages.map((src) => (
                       <button
                         key={src}
                         onClick={() => setActiveImage(src)}
