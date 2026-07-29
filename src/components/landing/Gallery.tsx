@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 
 import { openLeadForm } from "@/components/LeadFormDialog";
-import heroVending from "@/assets/hero-vending.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
+import obj1 from "@/assets/object-1.jpg.asset.json";
+import obj2 from "@/assets/object-2.jpg.asset.json";
+import obj3 from "@/assets/object-3.jpg.asset.json";
+import obj4 from "@/assets/object-4.jpg.asset.json";
 
 const images = [
-  { src: heroVending, alt: "Водомат WODOMAT в работе" },
-  { src: heroBg, alt: "Объект WODOMAT" },
-  { src: heroVending, alt: "Сервисное обслуживание" },
-  { src: heroBg, alt: "Склад комплектующих WODOMAT" },
+  { src: obj1.url, alt: "Водомат ВОДОМАТ на объекте" },
+  { src: obj2.url, alt: "Водомат ВОДОМАТ на объекте" },
+  { src: obj3.url, alt: "Водомат ВОДОМАТ на объекте" },
+  { src: obj4.url, alt: "Водомат ВОДОМАТ на объекте" },
 ];
 
 const Gallery = () => (

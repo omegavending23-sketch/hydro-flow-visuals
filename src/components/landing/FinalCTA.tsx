@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+
 import { openLeadForm } from "@/components/LeadFormDialog";
 
 const FinalCTA = () => (
@@ -36,13 +36,15 @@ const FinalCTA = () => (
           <span className="relative z-10">Оставить заявку</span>
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
         </button>
-        <Link
-          to="/contacts"
+        <a
+          href="https://t.me/AlivewaterByBot?start=66041a6bf5013bc4e20fff50"
+          target="_blank"
+          rel="noopener noreferrer"
           className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary-foreground/10 border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300"
         >
           <span className="relative z-10">Бизнес-план в телеграм</span>
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite_0.5s]" />
-        </Link>
+        </a>
         <button
           type="button"
           onClick={() => openLeadForm()}
