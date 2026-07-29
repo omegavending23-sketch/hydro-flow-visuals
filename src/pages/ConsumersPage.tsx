@@ -1,8 +1,10 @@
 import Header from "@/components/Header";
 import ConsumersSection from "@/components/ConsumersSection";
 import Footer from "@/components/Footer";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const ConsumersPage = () => {
+  usePageMeta("ВОДОМАТ - потребителям");
   return (
     <div className="min-h-screen bg-background">
       <Header />

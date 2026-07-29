@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+
 import { openLeadForm } from "@/components/LeadFormDialog";
 import heroBgAsset from "@/assets/hero-new.jpg.asset.json";
 const heroBg = heroBgAsset.url;
@@ -58,13 +58,15 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link
-              to="/contacts"
+            <a
+              href="https://t.me/AlivewaterByBot?start=66041a6bf5013bc4e20fff50"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative overflow-hidden px-8 py-4 rounded-2xl font-heading font-bold text-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 text-center"
             >
               <span className="relative z-10">Получить бизнес-план в телеграм</span>
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
-            </Link>
+            </a>
             <button
               type="button"
               onClick={() => openLeadForm()}
