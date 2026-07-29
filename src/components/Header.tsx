@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Droplets } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { openLeadForm } from "@/components/LeadFormDialog";
 
 const navItems = [
   { label: "Главная", href: "/" },
@@ -78,13 +79,14 @@ const Header = () => {
           >
             Мониторинг
           </a>
-          <Link
-            to="/contacts"
+          <button
+            type="button"
+            onClick={() => openLeadForm()}
             className="relative overflow-hidden ml-2 px-5 py-2.5 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105"
           >
             <span className="relative z-10">Стать партнером</span>
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
-          </Link>
+          </button>
         </nav>
 
         {/* Mobile toggle */}
@@ -136,14 +138,14 @@ const Header = () => {
               >
                 Мониторинг
               </a>
-              <Link
-                to="/contacts"
-                onClick={() => setIsOpen(false)}
+              <button
+                type="button"
+                onClick={() => { setIsOpen(false); openLeadForm(); }}
                 className="relative overflow-hidden mt-2 px-5 py-3 rounded-xl font-heading text-sm font-semibold bg-primary text-primary-foreground text-center"
               >
                 <span className="relative z-10">Стать партнером</span>
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-[shine_2.5s_ease-in-out_infinite]" />
-              </Link>
+              </button>
             </div>
           </motion.div>
         )}

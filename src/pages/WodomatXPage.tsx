@@ -217,9 +217,30 @@ const WodomatXPage = () => {
                     ))}
                   </div>
 
-                  <p className="font-heading font-bold text-3xl md:text-4xl text-foreground">
+                  <p className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-6">
                     11 450 руб.
                   </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/fjkztossYCY?autoplay=1&mute=1&loop=1&playlist=fjkztossYCY&playsinline=1"
+                        title="WODOMAT X — видео 1"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/qJIslTD0Lvc?autoplay=1&mute=1&loop=1&playlist=qJIslTD0Lvc&playsinline=1"
+                        title="WODOMAT X — видео 2"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>
