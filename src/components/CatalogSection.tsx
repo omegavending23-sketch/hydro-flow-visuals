@@ -98,9 +98,6 @@ const CatalogSection = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line mb-4">
                     {product.description}
                   </p>
-                  <p className="text-xs text-muted-foreground/70 mb-4">
-                    {product.dimensions}
-                  </p>
                   <p className="font-heading font-bold text-2xl text-foreground mb-5">
                     {product.price}
                   </p>
