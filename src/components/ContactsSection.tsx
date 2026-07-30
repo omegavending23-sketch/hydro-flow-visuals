@@ -44,9 +44,10 @@ const ContactsSection = () => {
       setFormData({ name: "", email: "", phone: "", message: "" });
       setAgree(false);
     } catch (err) {
+      const msg = err instanceof Error ? err.message : "";
       toast.error(
-        err instanceof Error && err.message.includes("Activation")
-          ? "Форма ожидает активации: перейдите по ссылке в письме от FormSubmit на 7798080@inbox.ru."
+        /activat/i.test(msg)
+          ? `Форма ещё не активирована для домена ${window.location.hostname}. Откройте письмо от FormSubmit на 7798080@inbox.ru и нажмите «Activate Form», затем повторите отправку.`
           : "Не удалось отправить заявку. Попробуйте позже."
       );
     } finally {
