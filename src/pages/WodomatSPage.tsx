@@ -10,10 +10,10 @@ import {
   Volume2, Lock, Sparkles, Monitor, CreditCard, Package,
   GraduationCap, Globe, Anchor,
 } from "lucide-react";
-import sFrontAsset from "@/assets/s-ai-front.png.asset.json";
-import sLeftAsset from "@/assets/s-ai-left.png.asset.json";
-import sRightAsset from "@/assets/s-ai-right.png.asset.json";
-const sGallery = [sFrontAsset.url, sLeftAsset.url, sRightAsset.url];
+import sFrontAsset from "@/assets/s-ai-front.png";
+import sLeftAsset from "@/assets/s-ai-left.png";
+import sRightAsset from "@/assets/s-ai-right.png";
+const sGallery = [sFrontAsset, sLeftAsset, sRightAsset];
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTableS from "@/components/wodomat-s/ComparisonTableS";
 import { openLeadForm } from "@/components/LeadFormDialog";

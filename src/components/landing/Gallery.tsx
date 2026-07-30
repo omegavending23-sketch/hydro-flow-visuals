@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
 
 import { openLeadForm } from "@/components/LeadFormDialog";
-import obj1 from "@/assets/object-1.jpg.asset.json";
-import obj2 from "@/assets/object-2.jpg.asset.json";
-import obj3 from "@/assets/object-3.jpg.asset.json";
-import obj4 from "@/assets/object-4.jpg.asset.json";
+import obj1 from "@/assets/object-1.jpg";
+import obj2 from "@/assets/object-2.jpg";
+import obj3 from "@/assets/object-3.jpg";
+import obj4 from "@/assets/object-4.jpg";
 
 const images = [
-  { src: obj1.url, alt: "Водомат ВОДОМАТ на объекте" },
-  { src: obj2.url, alt: "Водомат ВОДОМАТ на объекте" },
-  { src: obj3.url, alt: "Водомат ВОДОМАТ на объекте" },
-  { src: obj4.url, alt: "Водомат ВОДОМАТ на объекте" },
+  { src: obj1, alt: "Водомат ВОДОМАТ на объекте" },
+  { src: obj2, alt: "Водомат ВОДОМАТ на объекте" },
+  { src: obj3, alt: "Водомат ВОДОМАТ на объекте" },
+  { src: obj4, alt: "Водомат ВОДОМАТ на объекте" },
 ];
 
 const Gallery = () => (
