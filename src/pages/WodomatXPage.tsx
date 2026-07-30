@@ -11,12 +11,12 @@ import {
   GraduationCap, Globe
 } from "lucide-react";
 import { useState } from "react";
-import x2Asset from "@/assets/x2.png.asset.json";
-import x3Asset from "@/assets/wodomat-x3.png.asset.json";
-import x4Asset from "@/assets/x4.png.asset.json";
-import x5Asset from "@/assets/x5.jpg.asset.json";
-import x6Asset from "@/assets/x6.jpg.asset.json";
-const galleryImages = [x3Asset.url, x2Asset.url, x4Asset.url, x5Asset.url, x6Asset.url];
+import x2Asset from "@/assets/x2.png";
+import x3Asset from "@/assets/wodomat-x3.png";
+import x4Asset from "@/assets/x4.png";
+import x5Asset from "@/assets/x5.jpg";
+import x6Asset from "@/assets/x6.jpg";
+const galleryImages = [x3Asset, x2Asset, x4Asset, x5Asset, x6Asset];
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTable from "@/components/wodomat-x/ComparisonTable";
 import { openLeadForm } from "@/components/LeadFormDialog";

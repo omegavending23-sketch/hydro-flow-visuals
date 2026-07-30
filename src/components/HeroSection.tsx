@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 import { openLeadForm } from "@/components/LeadFormDialog";
-import heroBgAsset from "@/assets/hero-new.jpg.asset.json";
-const heroBg = heroBgAsset.url;
+import heroBgAsset from "@/assets/hero-new.jpg";
+const heroBg = heroBgAsset;
 
 const HeroSection = () => {
   return (
