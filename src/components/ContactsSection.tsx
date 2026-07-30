@@ -24,21 +24,31 @@ const ContactsSection = () => {
     }
     setSubmitting(true);
     try {
+      const body = new FormData();
+      Object.entries(formData).forEach(([k, v]) => body.append(k, v));
+      body.append("_subject", "Новая заявка с сайта ВОДОМАТ");
+      body.append("_template", "table");
+      body.append("_captcha", "false");
+
       const res = await fetch("https://formsubmit.co/ajax/7798080@inbox.ru", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          _subject: "Новая заявка с сайта ВОДОМАТ",
-          _template: "table",
-        }),
+        headers: { Accept: "application/json" },
+        body,
       });
-      if (!res.ok) throw new Error();
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data || String(data.success) !== "true") {
+        console.error("FormSubmit error:", res.status, data);
+        throw new Error(data?.message || "Send failed");
+      }
       toast.success("Спасибо! Мы свяжемся с вами в ближайшее время.");
       setFormData({ name: "", email: "", phone: "", message: "" });
       setAgree(false);
-    } catch {
-      toast.error("Не удалось отправить заявку. Попробуйте позже.");
+    } catch (err) {
+      toast.error(
+        err instanceof Error && err.message.includes("Activation")
+          ? "Форма ожидает активации: перейдите по ссылке в письме от FormSubmit на 7798080@inbox.ru."
+          : "Не удалось отправить заявку. Попробуйте позже."
+      );
     } finally {
       setSubmitting(false);
     }
