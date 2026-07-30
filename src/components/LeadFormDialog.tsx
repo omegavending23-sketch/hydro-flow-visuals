@@ -60,24 +60,34 @@ const LeadFormDialog = () => {
     if (!validate()) return;
     setSubmitting(true);
     try {
+      const body = new FormData();
+      body.append("name", formData.name);
+      body.append("email", formData.email);
+      body.append("phone", formData.phone);
+      body.append("_subject", "Новая заявка с сайта ВОДОМАТ");
+      body.append("_template", "table");
+      body.append("_captcha", "false");
+
       const res = await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          _subject: "Новая заявка с сайта ВОДОМАТ",
-          _template: "table",
-        }),
+        headers: { Accept: "application/json" },
+        body,
       });
-      if (!res.ok) throw new Error("Send failed");
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data || String(data.success) !== "true") {
+        console.error("FormSubmit error:", res.status, data);
+        throw new Error(data?.message || "Send failed");
+      }
       toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
       setFormData({ name: "", email: "", phone: "" });
       setAgree(false);
       handleOpenChange(false);
-    } catch {
-      toast.error("Не удалось отправить заявку. Попробуйте позже.");
+    } catch (err) {
+      toast.error(
+        err instanceof Error && err.message.includes("Activation")
+          ? "Форма ожидает активации: перейдите по ссылке в письме от FormSubmit на 7798080@inbox.ru."
+          : "Не удалось отправить заявку. Попробуйте позже."
+      );
     } finally {
       setSubmitting(false);
     }
