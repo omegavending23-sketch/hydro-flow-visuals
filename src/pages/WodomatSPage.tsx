@@ -211,7 +211,7 @@ const WodomatSPage = () => {
                     {[
                       { label: "Высота", value: "170 см" },
                       { label: "Глубина", value: "70 см" },
-                      { label: "Ширина", value: "80 см" },
+                      { label: "Ширина", value: "85 см" },
                       { label: "Вес", value: "158 кг" },
                     ].map((s) => (
                       <div key={s.label} className="glass-card p-3 text-center rounded-xl">

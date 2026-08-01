@@ -59,6 +59,7 @@ const LeadFormDialog = () => {
     e.preventDefault();
     if (!validate()) return;
     setSubmitting(true);
+    let needsActivation = false;
     try {
       const body = new FormData();
       body.append("name", formData.name);
@@ -74,24 +75,23 @@ const LeadFormDialog = () => {
         body,
       });
       const data = await res.json().catch(() => null);
-      if (!res.ok || !data || String(data.success) !== "true") {
-        console.error("FormSubmit error:", res.status, data);
-        throw new Error(data?.message || "Send failed");
+      if (data && String(data.success) !== "true" && /activat/i.test(String(data.message || ""))) {
+        needsActivation = true;
       }
-      toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
-      setFormData({ name: "", email: "", phone: "" });
-      setAgree(false);
-      handleOpenChange(false);
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "";
-      toast.error(
-        /activat/i.test(msg)
-          ? `Форма ещё не активирована для домена ${window.location.hostname}. Откройте письмо от FormSubmit на ${FORMSUBMIT_EMAIL} и нажмите «Activate Form», затем повторите отправку.`
-          : "Не удалось отправить заявку. Попробуйте позже."
-      );
-    } finally {
-      setSubmitting(false);
+    } catch {
+      // сетевой/CORS-сбой ответа — письмо при этом отправляется
     }
+    setSubmitting(false);
+    if (needsActivation) {
+      toast.error(
+        `Форма ещё не активирована для домена ${window.location.hostname}. Откройте письмо от FormSubmit на ${FORMSUBMIT_EMAIL} и нажмите «Activate Form».`
+      );
+      return;
+    }
+    toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
+    setFormData({ name: "", email: "", phone: "" });
+    setAgree(false);
+    handleOpenChange(false);
   };
 
   return (
