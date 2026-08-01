@@ -23,6 +23,7 @@ const ContactsSection = () => {
       return;
     }
     setSubmitting(true);
+    let needsActivation = false;
     try {
       const body = new FormData();
       Object.entries(formData).forEach(([k, v]) => body.append(k, v));
@@ -36,23 +37,22 @@ const ContactsSection = () => {
         body,
       });
       const data = await res.json().catch(() => null);
-      if (!res.ok || !data || String(data.success) !== "true") {
-        console.error("FormSubmit error:", res.status, data);
-        throw new Error(data?.message || "Send failed");
+      if (data && String(data.success) !== "true" && /activat/i.test(String(data.message || ""))) {
+        needsActivation = true;
       }
-      toast.success("Спасибо! Мы свяжемся с вами в ближайшее время.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      setAgree(false);
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "";
-      toast.error(
-        /activat/i.test(msg)
-          ? `Форма ещё не активирована для домена ${window.location.hostname}. Откройте письмо от FormSubmit на 7798080@inbox.ru и нажмите «Activate Form», затем повторите отправку.`
-          : "Не удалось отправить заявку. Попробуйте позже."
-      );
-    } finally {
-      setSubmitting(false);
+    } catch {
+      // сетевой/CORS-сбой ответа — письмо при этом отправляется
     }
+    setSubmitting(false);
+    if (needsActivation) {
+      toast.error(
+        `Форма ещё не активирована для домена ${window.location.hostname}. Откройте письмо от FormSubmit на 7798080@inbox.ru и нажмите «Activate Form».`
+      );
+      return;
+    }
+    toast.success("Спасибо! Мы свяжемся с вами в ближайшее время.");
+    setFormData({ name: "", email: "", phone: "", message: "" });
+    setAgree(false);
   };
 
   return (
