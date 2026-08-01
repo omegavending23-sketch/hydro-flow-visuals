@@ -34,7 +34,7 @@ const AdvantageCard = ({ item, index }: { item: AdvantageItem; index: number }) 
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
       )}
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 min-w-0">
         <div className={`flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center ${
           hasCompetitorNote
             ? "bg-gradient-to-br from-primary/20 to-accent/20"
@@ -42,7 +42,7 @@ const AdvantageCard = ({ item, index }: { item: AdvantageItem; index: number }) 
         }`}>
           <item.icon className="w-6 h-6 text-primary" />
         </div>
-        <h3 className="font-heading font-bold text-lg md:text-xl text-foreground">
+        <h3 className="font-heading font-bold text-base sm:text-lg md:text-xl text-foreground min-w-0 break-words hyphens-auto">
           <span className="text-primary mr-1">{item.number}.</span> {item.title}
         </h3>
       </div>
