@@ -42,7 +42,7 @@ const AdvantageCard = ({ item, index }: { item: AdvantageItem; index: number }) 
         }`}>
           <item.icon className="w-6 h-6 text-primary" />
         </div>
-        <h3 className="font-heading font-bold text-lg md:text-xl text-foreground">
+        <h3 className="font-heading font-bold text-base sm:text-lg md:text-xl text-foreground min-w-0 break-words hyphens-auto">
           <span className="text-primary mr-1">{item.number}.</span> {item.title}
         </h3>
       </div>
