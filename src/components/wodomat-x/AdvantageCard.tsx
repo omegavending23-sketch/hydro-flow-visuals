@@ -34,7 +34,7 @@ const AdvantageCard = ({ item, index }: { item: AdvantageItem; index: number }) 
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
       )}
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 min-w-0">
         <div className={`flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center ${
           hasCompetitorNote
             ? "bg-gradient-to-br from-primary/20 to-accent/20"
