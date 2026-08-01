@@ -9,7 +9,7 @@ const FinalCTA = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="font-heading font-bold text-3xl md:text-4xl mb-6"
+        className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl mb-6 break-words hyphens-auto"
       >
         Хотите запустить аква-вендинг или масштабировать действующий проект?
       </motion.h2>
