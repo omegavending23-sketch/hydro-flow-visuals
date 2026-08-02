@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://xn--80adg6aib4a.xn--90ais/sitemap.xml
+
