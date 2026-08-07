@@ -13,9 +13,9 @@ import {
 import sFrontAsset from "@/assets/s-ai-front.png";
 import sLeftAsset from "@/assets/s-ai-left.png";
 import sRightAsset from "@/assets/s-ai-right.png";
-import s2Asset from "@/assets/s-2.jpg.asset.json";
-import s4Asset from "@/assets/s-4.jpg.asset.json";
-const sGallery = [sFrontAsset, sLeftAsset, sRightAsset, s2Asset.url, s4Asset.url];
+import s2Asset from "@/assets/s-2.jpg";
+import s4Asset from "@/assets/s-4.jpg";
+const sGallery = [sFrontAsset, sLeftAsset, sRightAsset, s2Asset, s4Asset];
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTableS from "@/components/wodomat-s/ComparisonTableS";
 import { openLeadForm } from "@/components/LeadFormDialog";
