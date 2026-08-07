@@ -232,6 +232,23 @@ const WodomatSPage = () => {
           </section>
         </WaterBackground>
 
+        {/* Video */}
+        <WaterBackground intensity="light">
+          <section className="py-10 md:py-14 px-4 md:px-8">
+            <div className="container mx-auto max-w-3xl">
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg mx-auto">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/Nnp59BCDh4Q?autoplay=1&mute=1&loop=1&playlist=Nnp59BCDh4Q&playsinline=1"
+                  title="WODOMAT S — видео"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </section>
+        </WaterBackground>
+
         {/* Advantages */}
         <WaterBackground intensity="light">
           <section className="py-14 md:py-20 px-4 md:px-8">
