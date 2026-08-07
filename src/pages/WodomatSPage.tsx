@@ -13,7 +13,9 @@ import {
 import sFrontAsset from "@/assets/s-ai-front.png";
 import sLeftAsset from "@/assets/s-ai-left.png";
 import sRightAsset from "@/assets/s-ai-right.png";
-const sGallery = [sFrontAsset, sLeftAsset, sRightAsset];
+import s2Asset from "@/assets/s-2.jpg.asset.json";
+import s4Asset from "@/assets/s-4.jpg.asset.json";
+const sGallery = [sFrontAsset, sLeftAsset, sRightAsset, s2Asset.url, s4Asset.url];
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTableS from "@/components/wodomat-s/ComparisonTableS";
 import { openLeadForm } from "@/components/LeadFormDialog";
@@ -69,7 +71,7 @@ const advantages: AdvantageItem[] = [
     number: 6,
     title: "Высокая производительность",
     description: "Стабильная работа даже при высокой нагрузке.",
-    details: ["Мембраны 1600 GPD", "До 3 литров в минуту", "Бак 140 литров из пищевой нержавеющей стали"],
+    details: ["Мембраны 1600 GPD", "До 3 литров в минуту", "Бак 100 литров из пищевой нержавеющей стали"],
   },
   {
     icon: Volume2,
@@ -178,14 +180,14 @@ const WodomatSPage = () => {
                         onClick={() => setActiveImage(src)}
                         className={`w-16 h-20 md:w-20 md:h-24 rounded-lg overflow-hidden border-2 transition-all bg-white/40 ${activeImage === src ? "border-primary shadow-md" : "border-transparent hover:border-primary/40"}`}
                       >
-                        <img src={src} alt="водомат WODOMAT S" className="w-full h-full object-contain" />
+                        <img src={src} alt="WODOMAT S" className="w-full h-full object-contain" />
                       </button>
                     ))}
                   </div>
                   <motion.img
                     key={activeImage}
                     src={activeImage}
-                    alt="водомат WODOMAT S"
+                    alt="WODOMAT S"
                     className="h-[350px] md:h-[480px] object-contain drop-shadow-2xl"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -226,6 +228,23 @@ const WodomatSPage = () => {
                   </p>
                 </div>
               </motion.div>
+            </div>
+          </section>
+        </WaterBackground>
+
+        {/* Video */}
+        <WaterBackground intensity="light">
+          <section className="py-10 md:py-14 px-4 md:px-8">
+            <div className="container mx-auto max-w-3xl">
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg mx-auto">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/Nnp59BCDh4Q?autoplay=1&mute=1&loop=1&playlist=Nnp59BCDh4Q&playsinline=1"
+                  title="WODOMAT S — видео"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </section>
         </WaterBackground>
