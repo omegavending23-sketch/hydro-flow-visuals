@@ -180,14 +180,14 @@ const WodomatSPage = () => {
                         onClick={() => setActiveImage(src)}
                         className={`w-16 h-20 md:w-20 md:h-24 rounded-lg overflow-hidden border-2 transition-all bg-white/40 ${activeImage === src ? "border-primary shadow-md" : "border-transparent hover:border-primary/40"}`}
                       >
-                        <img src={src} alt="водомат WODOMAT S" className="w-full h-full object-contain" />
+                        <img src={src} alt="WODOMAT S" className="w-full h-full object-contain" />
                       </button>
                     ))}
                   </div>
                   <motion.img
                     key={activeImage}
                     src={activeImage}
-                    alt="водомат WODOMAT S"
+                    alt="WODOMAT S"
                     className="h-[350px] md:h-[480px] object-contain drop-shadow-2xl"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
