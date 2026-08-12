@@ -75,7 +75,7 @@ const advantages: AdvantageItem[] = [
     details: ["Низкий уровень шума", "Стабильное давление"],
   },
   {
-    icon: Package(),
+    icon: Building2,
     number: 9,
     title: "Розлив тары от 0,2 до 19 литров",
     description: "От стаканчика до 19-литровой бутыли.",
@@ -124,10 +124,6 @@ const ecosystemItems = [
   "Передовые технологии водоочистки", "Стильный дизайн", "Высокая надёжность",
   "Работа 24/365", "Сервис и монтаж", "Аренда без покупки",
 ];
-
-function Package() {
-  return Building2;
-}
 
 const PurifierPage = () => {
   usePageMeta(
