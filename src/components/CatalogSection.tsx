@@ -93,7 +93,7 @@ const CatalogSection = () => {
                 <div className="w-full p-6 pb-0 flex justify-center">
                   <img
                     src={product.image}
-                    alt={product.name}
+                    alt={(product as { alt?: string }).alt ?? product.name}
                     onClick={() => product.link && navigate(product.link)}
                     className="h-[340px] md:h-[400px] object-contain transition-transform duration-700 group-hover:scale-105 cursor-pointer"
                   />
