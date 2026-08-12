@@ -5,6 +5,7 @@ import { Shield, Zap, Droplets, Leaf, Clock, Award } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import wodomatXAsset from "@/assets/wodomat-x3.png";
 import wodomatSAsset from "@/assets/s-ai-front.png";
+import purifierAsset from "@/assets/purifier-1.png";
 const wodomatX = wodomatXAsset;
 const wodomatS = wodomatSAsset;
 import WaterBackground from "./WaterBackground";
@@ -37,6 +38,16 @@ const products = [
     dimensions: "170 см · 85 см · 60 см",
     price: "10 450 руб.",
     link: "/catalog/wodomat-s",
+  },
+  {
+    image: purifierAsset,
+    alt: "модель Пурифайер от ВОДОМАТ",
+    name: "ПУРИФАЙЕР",
+    subtitle: "Водомат для организаций и предприятий",
+    description: "Пурифайер от WODOMAT - это сочетание передовых технологий водоочистки, стильного дизайна и высокой надёжности. Водомат разработан для обеспечения постоянного доступа к качественной питьевой воде для организаций и предприятий.",
+    dimensions: "190 см · 65 см · 65 см",
+    price: "7 150 руб.",
+    link: "/purifier",
   },
 ];
 
@@ -82,7 +93,7 @@ const CatalogSection = () => {
                 <div className="w-full p-6 pb-0 flex justify-center">
                   <img
                     src={product.image}
-                    alt={product.name}
+                    alt={(product as { alt?: string }).alt ?? product.name}
                     onClick={() => product.link && navigate(product.link)}
                     className="h-[340px] md:h-[400px] object-contain transition-transform duration-700 group-hover:scale-105 cursor-pointer"
                   />
