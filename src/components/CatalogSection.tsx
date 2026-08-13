@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import wodomatXAsset from "@/assets/wodomat-x3.png";
 import wodomatSAsset from "@/assets/s-ai-front.png";
 import purifierAsset from "@/assets/purifier-1.png";
+import purifier2Asset from "@/assets/purifier2-1.png";
 const wodomatX = wodomatXAsset;
 const wodomatS = wodomatSAsset;
 import WaterBackground from "./WaterBackground";
@@ -48,6 +49,16 @@ const products = [
     dimensions: "190 см · 65 см · 65 см",
     price: "7 150 руб.",
     link: "/purifier",
+  },
+  {
+    image: purifier2Asset,
+    alt: "модель Пурифайер 2 от ВОДОМАТ",
+    name: "ПУРИФАЙЕР 2",
+    subtitle: "Водомат с газированной водой для организаций и предприятий",
+    description: "Пурифайер 2 от WODOMAT - водомат премиум-класса для питьевой и газированной воды. Водомат разработан для обеспечения постоянного доступа к качественной питьевой воде для организаций и предприятий.",
+    dimensions: "200 см · 80 см · 95 см",
+    price: "9 450 руб.",
+    link: "/purifier-2",
   },
 ];
 
