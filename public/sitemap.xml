@@ -26,6 +26,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://xn--80adg6aib4a.xn--90ais/purifier-2</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://xn--80adg6aib4a.xn--90ais/rental</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

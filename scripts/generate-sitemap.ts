@@ -18,6 +18,7 @@ const entries: SitemapEntry[] = [
   { path: "/catalog/wodomat-x", changefreq: "monthly", priority: "0.8" },
   { path: "/catalog/wodomat-s", changefreq: "monthly", priority: "0.8" },
   { path: "/purifier", changefreq: "monthly", priority: "0.8" },
+  { path: "/purifier-2", changefreq: "monthly", priority: "0.8" },
   { path: "/rental", changefreq: "monthly", priority: "0.8" },
   { path: "/consumers", changefreq: "monthly", priority: "0.7" },
   { path: "/contacts", changefreq: "monthly", priority: "0.6" },

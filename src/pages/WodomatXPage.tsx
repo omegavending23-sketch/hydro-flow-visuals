@@ -20,6 +20,7 @@ const galleryImages = [x3Asset, x2Asset, x4Asset, x5Asset, x6Asset];
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTable from "@/components/wodomat-x/ComparisonTable";
 import { openLeadForm } from "@/components/LeadFormDialog";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const advantages: AdvantageItem[] = [
   {
@@ -145,6 +146,7 @@ const ecosystemItems = [
 ];
 
 const WodomatXPage = () => {
+  usePageMeta("ВОДОМАТ - WODOMAT X");
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true });
   const ecoRef = useRef(null);

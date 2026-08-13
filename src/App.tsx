@@ -12,6 +12,7 @@ import ContactsPage from "./pages/ContactsPage";
 import WodomatXPage from "./pages/WodomatXPage";
 import WodomatSPage from "./pages/WodomatSPage";
 import PurifierPage from "./pages/PurifierPage";
+import Purifier2Page from "./pages/Purifier2Page";
 import NotFound from "./pages/NotFound";
 import LeadFormDialog from "@/components/LeadFormDialog";
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/catalog/wodomat-x" element={<WodomatXPage />} />
           <Route path="/catalog/wodomat-s" element={<WodomatSPage />} />
           <Route path="/purifier" element={<PurifierPage />} />
+          <Route path="/purifier-2" element={<Purifier2Page />} />
           <Route path="/rental" element={<RentalPage />} />
           <Route path="/consumers" element={<ConsumersPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
