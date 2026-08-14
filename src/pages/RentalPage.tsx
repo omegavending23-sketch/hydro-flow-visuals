@@ -11,7 +11,7 @@ const RentalPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <div className="pt-[67.2px]">
+      <div className="pt-16">
         <RentalSection />
       </div>
       <Footer />
