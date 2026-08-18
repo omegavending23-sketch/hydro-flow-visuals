@@ -9,8 +9,15 @@ type Listener = (open: boolean) => void;
 const listeners = new Set<Listener>();
 let currentOpen = false;
 
-export const openLeadForm = () => {
+export type LeadFormMode = "formsubmit" | "sendpulse";
+type ModeListener = (mode: LeadFormMode) => void;
+const modeListeners = new Set<ModeListener>();
+let currentMode: LeadFormMode = "formsubmit";
+
+export const openLeadForm = (mode: LeadFormMode = "formsubmit") => {
   currentOpen = true;
+  currentMode = mode;
+  modeListeners.forEach((l) => l(mode));
   listeners.forEach((l) => l(true));
 };
 
@@ -20,13 +27,17 @@ export const closeLeadForm = () => {
 };
 
 const FORMSUBMIT_EMAIL = "7798080@inbox.ru";
+const SENDPULSE_EVENT_URL =
+  "https://events.sendpulse.com/events/id/68787637f470499cef2829ea418a5d24/8560113";
 
 const LeadFormDialog = () => {
   const [open, setOpen] = useState(currentOpen);
+  const [mode, setMode] = useState<LeadFormMode>(currentMode);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string; agree?: string }>({});
   const [submitting, setSubmitting] = useState(false);
+
 
   useEffect(() => {
     const listener: Listener = (o) => setOpen(o);
