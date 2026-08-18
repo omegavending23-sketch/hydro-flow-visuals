@@ -13,7 +13,7 @@ const CtaButton = ({ label = "Обсудить условия аренды" }: {
   <div className="text-center">
     <button
       type="button"
-      onClick={() => openLeadForm()}
+      onClick={() => openLeadForm("sendpulse")}
       className="relative overflow-hidden px-8 md:px-12 py-4 rounded-2xl font-heading font-bold text-base md:text-lg bg-primary text-primary-foreground transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95"
     >
       <span className="relative z-10">{label}</span>
@@ -279,7 +279,7 @@ const RentalSection = () => {
                   <div className="mt-auto flex flex-col sm:flex-row gap-3">
                     <button
                       type="button"
-                      onClick={() => openLeadForm()}
+                      onClick={() => openLeadForm("sendpulse")}
                       className="relative overflow-hidden flex-1 px-6 py-3.5 rounded-2xl font-heading font-bold bg-primary text-primary-foreground transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
                     >
                       <span className="relative z-10">Обсудить условия аренды</span>
