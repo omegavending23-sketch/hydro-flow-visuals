@@ -75,8 +75,53 @@ const LeadFormDialog = () => {
     if (!validate()) return;
     setSubmitting(true);
     let needsActivation = false;
+
+    if (mode === "sendpulse") {
+      let ok = false;
+      try {
+        const res = await fetch(SENDPULSE_EVENT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.email.trim(),
+            phone: formData.phone.replace(/[\s\-()]/g, ""),
+            first_name: formData.name.trim(),
+          }),
+        });
+        ok = res.ok;
+      } catch {
+        // CORS/сетевой сбой — пробуем no-cors как запасной вариант
+        try {
+          await fetch(SENDPULSE_EVENT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=UTF-8" },
+            body: JSON.stringify({
+              email: formData.email.trim(),
+              phone: formData.phone.replace(/[\s\-()]/g, ""),
+              first_name: formData.name.trim(),
+            }),
+          });
+          ok = true;
+        } catch {
+          ok = false;
+        }
+      }
+      setSubmitting(false);
+      if (!ok) {
+        toast.error("Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.");
+        return;
+      }
+      toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
+      setFormData({ name: "", email: "", phone: "" });
+      setAgree(false);
+      handleOpenChange(false);
+      return;
+    }
+
     try {
       const body = new FormData();
+
       body.append("name", formData.name);
       body.append("email", formData.email);
       body.append("phone", formData.phone);
