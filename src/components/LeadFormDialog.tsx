@@ -9,8 +9,15 @@ type Listener = (open: boolean) => void;
 const listeners = new Set<Listener>();
 let currentOpen = false;
 
-export const openLeadForm = () => {
+export type LeadFormMode = "formsubmit" | "sendpulse";
+type ModeListener = (mode: LeadFormMode) => void;
+const modeListeners = new Set<ModeListener>();
+let currentMode: LeadFormMode = "formsubmit";
+
+export const openLeadForm = (mode: LeadFormMode = "formsubmit") => {
   currentOpen = true;
+  currentMode = mode;
+  modeListeners.forEach((l) => l(mode));
   listeners.forEach((l) => l(true));
 };
 
@@ -20,21 +27,29 @@ export const closeLeadForm = () => {
 };
 
 const FORMSUBMIT_EMAIL = "7798080@inbox.ru";
+const SENDPULSE_EVENT_URL =
+  "https://events.sendpulse.com/events/id/68787637f470499cef2829ea418a5d24/8560113";
 
 const LeadFormDialog = () => {
   const [open, setOpen] = useState(currentOpen);
+  const [mode, setMode] = useState<LeadFormMode>(currentMode);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [agree, setAgree] = useState(false);
   const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string; agree?: string }>({});
   const [submitting, setSubmitting] = useState(false);
 
+
   useEffect(() => {
     const listener: Listener = (o) => setOpen(o);
+    const modeListener: ModeListener = (m) => setMode(m);
     listeners.add(listener);
+    modeListeners.add(modeListener);
     return () => {
       listeners.delete(listener);
+      modeListeners.delete(modeListener);
     };
   }, []);
+
 
   const handleOpenChange = (o: boolean) => {
     setOpen(o);
@@ -60,8 +75,53 @@ const LeadFormDialog = () => {
     if (!validate()) return;
     setSubmitting(true);
     let needsActivation = false;
+
+    if (mode === "sendpulse") {
+      let ok = false;
+      try {
+        const res = await fetch(SENDPULSE_EVENT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.email.trim(),
+            phone: formData.phone.replace(/[\s\-()]/g, ""),
+            first_name: formData.name.trim(),
+          }),
+        });
+        ok = res.ok;
+      } catch {
+        // CORS/сетевой сбой — пробуем no-cors как запасной вариант
+        try {
+          await fetch(SENDPULSE_EVENT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=UTF-8" },
+            body: JSON.stringify({
+              email: formData.email.trim(),
+              phone: formData.phone.replace(/[\s\-()]/g, ""),
+              first_name: formData.name.trim(),
+            }),
+          });
+          ok = true;
+        } catch {
+          ok = false;
+        }
+      }
+      setSubmitting(false);
+      if (!ok) {
+        toast.error("Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.");
+        return;
+      }
+      toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
+      setFormData({ name: "", email: "", phone: "" });
+      setAgree(false);
+      handleOpenChange(false);
+      return;
+    }
+
     try {
       const body = new FormData();
+
       body.append("name", formData.name);
       body.append("email", formData.email);
       body.append("phone", formData.phone);
