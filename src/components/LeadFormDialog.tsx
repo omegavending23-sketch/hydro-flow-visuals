@@ -41,11 +41,15 @@ const LeadFormDialog = () => {
 
   useEffect(() => {
     const listener: Listener = (o) => setOpen(o);
+    const modeListener: ModeListener = (m) => setMode(m);
     listeners.add(listener);
+    modeListeners.add(modeListener);
     return () => {
       listeners.delete(listener);
+      modeListeners.delete(modeListener);
     };
   }, []);
+
 
   const handleOpenChange = (o: boolean) => {
     setOpen(o);
