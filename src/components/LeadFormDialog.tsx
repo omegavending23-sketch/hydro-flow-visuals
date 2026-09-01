@@ -77,45 +77,39 @@ const LeadFormDialog = () => {
     let needsActivation = false;
 
     if (mode === "sendpulse") {
-      let ok = false;
+      const payload = {
+        email: formData.email.trim(),
+        phone: formData.phone.replace(/[\s\-()]/g, ""),
+        first_name: formData.name.trim(),
+      };
+
       try {
         const res = await fetch(SENDPULSE_EVENT_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: formData.email.trim(),
-            phone: formData.phone.replace(/[\s\-()]/g, ""),
-            first_name: formData.name.trim(),
-          }),
+          body: JSON.stringify(payload),
         });
-        ok = res.ok;
-      } catch {
-        // CORS/сетевой сбой — пробуем no-cors как запасной вариант
-        try {
-          await fetch(SENDPULSE_EVENT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "text/plain;charset=UTF-8" },
-            body: JSON.stringify({
-              email: formData.email.trim(),
-              phone: formData.phone.replace(/[\s\-()]/g, ""),
-              first_name: formData.name.trim(),
-            }),
-          });
-          ok = true;
-        } catch {
-          ok = false;
+
+        const data = await res.json().catch(() => null);
+        const ok = res.ok && (data === null || data.result !== false);
+
+        setSubmitting(false);
+
+        if (!ok) {
+          console.error("SendPulse error", res.status, data);
+          toast.error("Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.");
+          return;
         }
+
+        toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
+        setFormData({ name: "", email: "", phone: "" });
+        setAgree(false);
+        handleOpenChange(false);
+      } catch (err) {
+        console.error("SendPulse request failed", err);
+        setSubmitting(false);
+        toast.error("Не удалось отправить заявку. Проверьте соединение и попробуйте ещё раз.");
       }
-      setSubmitting(false);
-      if (!ok) {
-        toast.error("Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.");
-        return;
-      }
-      toast.success("Заявка отправлена! Мы свяжемся с вами в ближайшее время.");
-      setFormData({ name: "", email: "", phone: "" });
-      setAgree(false);
-      handleOpenChange(false);
       return;
     }
 
