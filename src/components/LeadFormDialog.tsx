@@ -93,6 +93,24 @@ const LeadFormDialog = () => {
         const data = await res.json().catch(() => null);
         const ok = res.ok && (data === null || data.result !== false);
 
+        // дублируем заявку на почту через FormSubmit
+        try {
+          const dup = new FormData();
+          dup.append("name", formData.name);
+          dup.append("email", formData.email);
+          dup.append("phone", formData.phone);
+          dup.append("_subject", "Новая заявка с сайта ВОДОМАТ (Аренда)");
+          dup.append("_template", "table");
+          dup.append("_captcha", "false");
+          await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`, {
+            method: "POST",
+            headers: { Accept: "application/json" },
+            body: dup,
+          });
+        } catch (dupErr) {
+          console.error("FormSubmit duplicate failed", dupErr);
+        }
+
         setSubmitting(false);
 
         if (!ok) {
