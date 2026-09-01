@@ -102,14 +102,24 @@ const LeadFormDialog = () => {
           dup.append("_subject", "Новая заявка с сайта ВОДОМАТ (Аренда)");
           dup.append("_template", "table");
           dup.append("_captcha", "false");
-          await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`, {
+          const dupRes = await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`, {
             method: "POST",
             headers: { Accept: "application/json" },
             body: dup,
           });
+          const dupData = await dupRes.json().catch(() => null);
+          if (dupData && String(dupData.success) !== "true") {
+            console.error("FormSubmit duplicate not delivered", dupData);
+            if (/activat/i.test(String(dupData.message || ""))) {
+              toast.warning(
+                `Заявка принята, но копия на почту не отправлена: форма FormSubmit не активирована для домена ${window.location.hostname}. Откройте письмо от FormSubmit на ${FORMSUBMIT_EMAIL} и нажмите «Activate Form».`
+              );
+            }
+          }
         } catch (dupErr) {
           console.error("FormSubmit duplicate failed", dupErr);
         }
+
 
         setSubmitting(false);
 
