@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Droplets } from "lucide-react";
+import { Menu, X, Droplets, Instagram } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { openLeadForm } from "@/components/LeadFormDialog";
+import TikTokIcon from "@/components/icons/TikTokIcon";
 
 const navItems = [
   { label: "Главная", href: "/" },
@@ -72,6 +73,28 @@ const Header = () => {
             <span className="font-bold text-sm">+ 375 29 779 80 80</span>
           </a>
           <a
+            href="https://www.tiktok.com/@vodomatbelarus"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ВОДОМАТ в TikTok"
+            className={`ml-2 p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-110 ${
+              scrolled || !isHome ? "text-foreground" : "text-primary-foreground"
+            }`}
+          >
+            <TikTokIcon className="w-5 h-5" />
+          </a>
+          <a
+            href="https://www.instagram.com/vodomatbelarus"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ВОДОМАТ в Instagram"
+            className={`p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-110 ${
+              scrolled || !isHome ? "text-foreground" : "text-primary-foreground"
+            }`}
+          >
+            <Instagram className="w-5 h-5" />
+          </a>
+          <a
             href="https://cloudwodomat.by/"
             target="_blank"
             rel="noopener noreferrer"
@@ -129,6 +152,28 @@ const Header = () => {
                 <span className="text-xs opacity-80">Отдел продаж оборудования</span>
                 <span className="font-bold text-sm">+ 375 29 779 80 80</span>
               </a>
+              <div className="mt-2 flex items-center justify-center gap-3">
+                <a
+                  href="https://www.tiktok.com/@vodomatbelarus"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ВОДОМАТ в TikTok"
+                  onClick={() => setIsOpen(false)}
+                  className="p-3 rounded-xl border border-border text-foreground hover:text-primary transition-colors"
+                >
+                  <TikTokIcon className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/vodomatbelarus"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ВОДОМАТ в Instagram"
+                  onClick={() => setIsOpen(false)}
+                  className="p-3 rounded-xl border border-border text-foreground hover:text-primary transition-colors"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
               <a
                 href="https://cloudwodomat.by/"
                 target="_blank"
