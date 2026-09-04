@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Droplets } from "lucide-react";
+import { Menu, X, Droplets, Instagram } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { openLeadForm } from "@/components/LeadFormDialog";
+import TikTokIcon from "@/components/icons/TikTokIcon";
 
 const navItems = [
   { label: "Главная", href: "/" },

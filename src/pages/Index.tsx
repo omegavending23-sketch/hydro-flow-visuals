@@ -7,6 +7,7 @@ import PurificationVideo from "@/components/landing/PurificationVideo";
 import WhySafe from "@/components/landing/WhySafe";
 import ClientJourney from "@/components/landing/ClientJourney";
 import Infrastructure from "@/components/landing/Infrastructure";
+import SocialVideos from "@/components/landing/SocialVideos";
 import Documents from "@/components/landing/Documents";
 import Team from "@/components/landing/Team";
 import ForWhom from "@/components/landing/ForWhom";
@@ -28,6 +29,7 @@ const Index = () => {
         <Gallery />
         <WhySafe />
         <ClientJourney />
+        <SocialVideos />
         <Infrastructure />
         <Documents />
         <Team />
