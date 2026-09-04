@@ -73,6 +73,28 @@ const Header = () => {
             <span className="font-bold text-sm">+ 375 29 779 80 80</span>
           </a>
           <a
+            href="https://www.tiktok.com/@vodomatbelarus"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ВОДОМАТ в TikTok"
+            className={`ml-2 p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-110 ${
+              scrolled || !isHome ? "text-foreground" : "text-primary-foreground"
+            }`}
+          >
+            <TikTokIcon className="w-5 h-5" />
+          </a>
+          <a
+            href="https://www.instagram.com/vodomatbelarus"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ВОДОМАТ в Instagram"
+            className={`p-2 rounded-lg transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:scale-110 ${
+              scrolled || !isHome ? "text-foreground" : "text-primary-foreground"
+            }`}
+          >
+            <Instagram className="w-5 h-5" />
+          </a>
+          <a
             href="https://cloudwodomat.by/"
             target="_blank"
             rel="noopener noreferrer"
