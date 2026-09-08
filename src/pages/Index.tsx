@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AboutUs from "@/components/landing/AboutUs";
+import BusinessEconomics from "@/components/landing/BusinessEconomics";
 import RSPP from "@/components/landing/RSPP";
 import TrustNumbers from "@/components/landing/TrustNumbers";
 import PurificationVideo from "@/components/landing/PurificationVideo";
