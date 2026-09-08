@@ -55,7 +55,7 @@ const WaterBackground = ({ children, className = "", intensity = "medium" }: Wat
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
-  const dropCount = intensity === "light" ? 5 : intensity === "heavy" ? 14 : 10;
+  const dropCount = intensity === "light" ? 5 : intensity === "heavy" ? 15 : 10;
 
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
