@@ -191,7 +191,7 @@ const Purifier2Page = () => {
                     {[
                       { label: "Высота", value: "200 см" },
                       { label: "Глубина", value: "80 см" },
-                      { label: "Ширина", value: "95 см" },
+                      { label: "Ширина", value: "90 см" },
                       { label: "Вес", value: "100 кг" },
                     ].map((s) => (
                       <div key={s.label} className="glass-card p-3 text-center rounded-xl">
