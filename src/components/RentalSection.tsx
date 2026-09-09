@@ -92,7 +92,7 @@ const machines = [
     specs: [
       { label: "Высота", value: "200 см" },
       { label: "Глубина", value: "80 см" },
-      { label: "Ширина", value: "95 см" },
+      { label: "Ширина", value: "90 см" },
       { label: "Вес", value: "100 кг" },
     ],
     features: [
@@ -293,10 +293,8 @@ const RentalSection = () => {
                     </Link>
                   </div>
                 </motion.div>
-              ))}
-            </div>
-
-            <CtaButton />
+            ))}
+          </div>
           </div>
         </section>
       </WaterBackground>
