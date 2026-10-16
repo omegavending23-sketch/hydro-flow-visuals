@@ -3,7 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shield, Zap, Droplets, Leaf, Clock, Award } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import wodomatXAsset from "@/assets/wodomat-x3.png";
+import wodomatXAsset from "@/assets/wodomat-x-1.png";
 import wodomatSAsset from "@/assets/s-ai-front.png";
 import purifierAsset from "@/assets/purifier-1.png";
 import purifier2Asset from "@/assets/purifier2-1.png";
@@ -23,6 +23,7 @@ const features = [
 
 const products = [
   {
+    alt: "WODOMAT X",
     image: wodomatX,
     name: "WODOMAT X",
     subtitle: "Премиальный интеллектуальный водомат для стабильного и масштабируемого бизнеса вашей собственной сети",
