@@ -11,12 +11,18 @@ import {
   GraduationCap, Globe
 } from "lucide-react";
 import { useState } from "react";
-import x2Asset from "@/assets/x2.png";
-import x3Asset from "@/assets/wodomat-x3.png";
-import x4Asset from "@/assets/x4.png";
+import x1Asset from "@/assets/wodomat-x-1.png";
+import x2Asset from "@/assets/wodomat-x-2.png";
+import x3Asset from "@/assets/wodomat-x-3.png";
 import x5Asset from "@/assets/x5.jpg";
 import x6Asset from "@/assets/x6.jpg";
-const galleryImages = [x3Asset, x2Asset, x4Asset, x5Asset, x6Asset];
+const galleryImages = [
+  { src: x1Asset, alt: "WODOMAT X" },
+  { src: x2Asset, alt: "WODOMAT X" },
+  { src: x3Asset, alt: "WODOMAT X" },
+  { src: x5Asset, alt: "водомат WODOMAT X" },
+  { src: x6Asset, alt: "водомат WODOMAT X" },
+];
 import AdvantageCard, { AdvantageItem } from "@/components/wodomat-x/AdvantageCard";
 import ComparisonTable from "@/components/wodomat-x/ComparisonTable";
 import { openLeadForm } from "@/components/LeadFormDialog";
@@ -152,7 +158,7 @@ const WodomatXPage = () => {
   const ecoRef = useRef(null);
   const ecoInView = useInView(ecoRef, { once: true, margin: "-80px" });
   const navigate = useNavigate();
-  const [activeImage, setActiveImage] = useState(galleryImages[0]);
+  const [activeImage, setActiveImage] = useState(galleryImages[0].src);
 
   return (
     <div className="min-h-screen bg-background">
@@ -170,20 +176,20 @@ const WodomatXPage = () => {
               >
                 <div className="w-full lg:w-5/12 flex justify-center gap-4">
                   <div className="flex flex-col gap-3">
-                    {galleryImages.map((src) => (
+                    {galleryImages.map((img) => (
                       <button
-                        key={src}
-                        onClick={() => setActiveImage(src)}
-                        className={`w-16 h-20 md:w-20 md:h-24 rounded-lg overflow-hidden border-2 transition-all bg-white/40 ${activeImage === src ? "border-primary shadow-md" : "border-transparent hover:border-primary/40"}`}
+                        key={img.src}
+                        onClick={() => setActiveImage(img.src)}
+                        className={`w-16 h-20 md:w-20 md:h-24 rounded-lg overflow-hidden border-2 transition-all bg-white/40 ${activeImage === img.src ? "border-primary shadow-md" : "border-transparent hover:border-primary/40"}`}
                       >
-                        <img src={src} alt="водомат WODOMAT X" className="w-full h-full object-contain" />
+                        <img src={img.src} alt={img.alt} className="w-full h-full object-contain" />
                       </button>
                     ))}
                   </div>
                   <motion.img
                     key={activeImage}
                     src={activeImage}
-                    alt="водомат WODOMAT X"
+                    alt={galleryImages.find((g) => g.src === activeImage)?.alt ?? "WODOMAT X"}
                     className="h-[350px] md:h-[480px] object-contain drop-shadow-2xl"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
