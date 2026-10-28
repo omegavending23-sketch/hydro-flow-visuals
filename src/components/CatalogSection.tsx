@@ -1,3 +1,4 @@
+import Promo1111, { PromoPrice, PROMO_1111_PRICES } from "@/components/promo/Promo1111"; // PROMO 11.11
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -30,6 +31,7 @@ const products = [
     description: "Комплексная система: технология, цифровой контроль, сервисная дисциплина и поддержка партнёров.",
     dimensions: "200 см · 85 см · 85 см",
     price: "11 450 руб.",
+    promo: PROMO_1111_PRICES.x, // PROMO 11.11
     link: "/catalog/wodomat-x",
   },
   {
@@ -39,6 +41,7 @@ const products = [
     description: "Комплексная система, объединяющая современные технологии очистки воды, цифровой контроль работы оборудования, удобные инструменты управления бизнесом и полноценную поддержку партнёров.\n\nМодель разработана специально для настенного размещения на фасадах зданий, что позволяет эффективно использовать пространство и устанавливать оборудование даже в местах с ограниченной площадью.",
     dimensions: "170 см · 85 см · 60 см",
     price: "10 450 руб.",
+    promo: PROMO_1111_PRICES.s, // PROMO 11.11
     link: "/catalog/wodomat-s",
   },
   {
@@ -70,6 +73,7 @@ const CatalogSection = () => {
 
   return (
     <WaterBackground intensity="light">
+      <Promo1111 /> {/* PROMO 11.11 */}
       <section id="catalog" className="section-padding" ref={ref}>
         <div className="container mx-auto">
           {/* Header */}
@@ -123,7 +127,7 @@ const CatalogSection = () => {
                     {product.description}
                   </p>
                   <p className="font-heading font-bold text-2xl text-foreground mb-5">
-                    {product.price}
+                    {product.promo ? <PromoPrice old={product.promo.old} promo={product.promo.promo} /> : product.price}
                   </p>
 
                   {/* Shine button */}
