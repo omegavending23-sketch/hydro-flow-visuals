@@ -1,4 +1,3 @@
-import Promo1111, { PromoPrice, PROMO_1111_PRICES } from "@/components/promo/Promo1111"; // PROMO 11.11
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WaterBackground from "@/components/WaterBackground";
@@ -227,7 +226,7 @@ const WodomatXPage = () => {
                   </div>
 
                   <p className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-6">
-                    <PromoPrice old={PROMO_1111_PRICES.x.old} promo={PROMO_1111_PRICES.x.promo} /> {/* PROMO 11.11 */}
+                    11 450 руб.
                   </p>
                 </div>
               </motion.div>
@@ -235,7 +234,6 @@ const WodomatXPage = () => {
           </section>
         </WaterBackground>
 
-        <Promo1111 /> {/* PROMO 11.11 */}
 
         {/* Videos */}
         <WaterBackground intensity="light">

@@ -1,4 +1,3 @@
-import Promo1111 from "@/components/promo/Promo1111"; // PROMO 11.11
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AboutUs from "@/components/landing/AboutUs";
@@ -26,7 +25,6 @@ const Index = () => {
         <HeroSection />
         <AboutUs />
         <RSPP />
-        <Promo1111 /> {/* PROMO 11.11 */}
         <PurificationVideo />
         <TrustNumbers />
         <BusinessEconomics />
