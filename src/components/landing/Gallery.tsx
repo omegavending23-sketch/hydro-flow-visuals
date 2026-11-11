@@ -42,7 +42,7 @@ const Gallery = () => (
 
       <Carousel
         opts={{ align: "start", loop: true }}
-        className="max-w-6xl mx-auto px-8 sm:px-12"
+        className="max-w-6xl mx-auto px-10 sm:px-12"
       >
         <CarouselContent className="-ml-4">
           {images.map((img, i) => (
@@ -67,8 +67,8 @@ const Gallery = () => (
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-1 sm:left-2" />
-        <CarouselNext className="right-1 sm:right-2" />
+        <CarouselPrevious className="left-0 sm:left-1" />
+        <CarouselNext className="right-0 sm:right-1" />
       </Carousel>
 
       <motion.div
