@@ -53,7 +53,7 @@ const SocialVideos = () => (
       <Carousel opts={{ align: "start", loop: true }} className="max-w-5xl mx-auto px-10">
         <CarouselContent>
           {videoIds.map((id, i) => (
-            <CarouselItem key={id} className="sm:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={id} className="sm:basis-1/2 lg:basis-1/4">
               <div className="glass-card overflow-hidden p-2">
                 <div className="relative w-full overflow-hidden rounded-xl" style={{ aspectRatio: "9 / 16" }}>
                   <iframe
