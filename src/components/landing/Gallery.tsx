@@ -42,7 +42,7 @@ const Gallery = () => (
 
       <Carousel
         opts={{ align: "start", loop: true }}
-        className="max-w-6xl mx-auto px-10 sm:px-12"
+        className="mx-auto px-10 sm:px-12"
       >
         <CarouselContent className="-ml-4">
           {images.map((img, i) => (

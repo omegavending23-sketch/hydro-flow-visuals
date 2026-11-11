@@ -50,7 +50,10 @@ const SocialVideos = () => (
         </a>
       </div>
 
-      <Carousel opts={{ align: "start", loop: true }} className="max-w-5xl mx-auto px-10">
+      <Carousel
+        opts={{ align: "start", loop: true }}
+        className="mx-auto px-10 sm:px-12"
+      >
         <CarouselContent>
           {videoIds.map((id, i) => (
             <CarouselItem key={id} className="sm:basis-1/2 lg:basis-1/4">
