@@ -1,16 +1,31 @@
 import { motion } from "framer-motion";
 
 import { openLeadForm } from "@/components/LeadFormDialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import obj1 from "@/assets/object-1.jpg";
 import obj2 from "@/assets/object-2.jpg";
 import obj3 from "@/assets/object-3.jpg";
 import obj4 from "@/assets/object-4.jpg";
+import obj5 from "@/assets/object-5.jpg";
+import obj6 from "@/assets/object-6.jpg";
+import obj7 from "@/assets/object-7.jpg";
+import obj8 from "@/assets/object-8.jpg";
 
 const images = [
   { src: obj1, alt: "Водомат ВОДОМАТ на объекте" },
   { src: obj2, alt: "Водомат ВОДОМАТ на объекте" },
   { src: obj3, alt: "Водомат ВОДОМАТ на объекте" },
   { src: obj4, alt: "Водомат ВОДОМАТ на объекте" },
+  { src: obj5, alt: "Аппараты по продаже воды ВОДОМАТ" },
+  { src: obj6, alt: "Аппараты по продаже воды ВОДОМАТ" },
+  { src: obj7, alt: "Аппараты по продаже воды ВОДОМАТ" },
+  { src: obj8, alt: "Аппараты по продаже воды ВОДОМАТ" },
 ];
 
 const Gallery = () => (
@@ -25,24 +40,36 @@ const Gallery = () => (
         Реальные <span className="text-gradient-water">объекты</span>
       </motion.h2>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {images.map((img, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="rounded-2xl overflow-hidden aspect-square group"
-          >
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          </motion.div>
-        ))}
-      </div>
+      <Carousel
+        opts={{ align: "start", loop: true }}
+        className="max-w-6xl mx-auto px-8 sm:px-12"
+      >
+        <CarouselContent className="-ml-4">
+          {images.map((img, i) => (
+            <CarouselItem
+              key={i}
+              className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: (i % 3) * 0.1 }}
+                className="rounded-2xl overflow-hidden aspect-[3/4] group"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </motion.div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="left-1 sm:left-2" />
+        <CarouselNext className="right-1 sm:right-2" />
+      </Carousel>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
