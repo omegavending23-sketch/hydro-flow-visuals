@@ -8,7 +8,7 @@ import TikTokIcon from "@/components/icons/TikTokIcon";
 const navItems = [
   { label: "Главная", href: "/" },
   { label: "Каталог", href: "/catalog" },
-  { label: "Аренда", href: "/rental" },
+  { label: "Аренда пурифайера", href: "/rental" },
   { label: "Потребителям", href: "/consumers" },
   { label: "Контакты", href: "/contacts" },
 ];
