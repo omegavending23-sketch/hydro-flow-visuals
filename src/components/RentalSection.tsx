@@ -144,10 +144,10 @@ const RentalSection = () => {
                 Аренда водоматов
               </span>
               <h1 className="font-heading font-bold text-3xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-tight">
-                Аренда водоматов для <span className="text-gradient-water">организаций и предприятий</span>
+                Аренда пурифайеров для <span className="text-gradient-water">организаций и предприятий</span>
               </h1>
               <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto mb-10">
-                Предоставляем водоматы для организаций и предприятий в долгосрочную аренду. Производим полное сервисное обслуживание водоматов на весь период аренды.
+                Предоставляем пурифайеры для организаций и предприятий в долгосрочную аренду. Производим полное сервисное обслуживание пурифайеров на весь период аренды.
               </p>
               <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-10">
                 {[
@@ -393,7 +393,7 @@ const RentalSection = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
-                Кому подходит <span className="text-gradient-water">аренда водоматов</span>
+                Кому подходит <span className="text-gradient-water">аренда пурифайеров</span>
               </h2>
               <p className="text-muted-foreground mb-10">
                 Любые объекты, где нужен круглосуточный доступ к свежей питьевой воде — 24/7/365
