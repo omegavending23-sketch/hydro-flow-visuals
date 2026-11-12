@@ -42,25 +42,29 @@ const Gallery = () => (
 
       <Carousel
         opts={{ align: "start", loop: true }}
-        className="mx-auto px-10 sm:px-12"
+        className="-mx-6 px-6 sm:-mx-12 sm:px-12"
       >
         <CarouselContent className="-ml-4">
           {images.map((img, i) => (
             <CarouselItem
               key={i}
-              className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+              className="pl-4 basis-full sm:basis-1/2 lg:basis-1/4"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: (i % 3) * 0.1 }}
+                transition={{ delay: (i % 4) * 0.1 }}
                 className="rounded-2xl overflow-hidden aspect-[3/4] group"
               >
                 <img
                   src={img.src}
                   alt={img.alt}
+                  width={960}
+                  height={1280}
                   loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </motion.div>

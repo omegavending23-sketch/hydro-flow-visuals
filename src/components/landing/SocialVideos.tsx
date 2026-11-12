@@ -52,17 +52,17 @@ const SocialVideos = () => (
 
       <Carousel
         opts={{ align: "start", loop: true }}
-        className="mx-auto px-10 sm:px-12"
+        className="-mx-6 px-6 sm:-mx-12 sm:px-12"
       >
         <CarouselContent>
           {videoIds.map((id, i) => (
             <CarouselItem key={id} className="sm:basis-1/2 lg:basis-1/4">
               <div className="glass-card overflow-hidden p-2">
-                <div className="relative w-full overflow-hidden rounded-xl" style={{ aspectRatio: "9 / 16" }}>
+                <div className="relative aspect-[9/16] w-full overflow-hidden rounded-xl">
                   <iframe
                     src={`https://www.tiktok.com/player/v1/${id}?autoplay=1&muted=1&loop=1&controls=1&description=0&music_info=0&rel=0`}
                     title={`Видео ВОДОМАТ в TikTok №${i + 1}`}
-                    className="absolute inset-0 w-full h-full"
+                    className="absolute inset-0 h-full w-full border-0"
                     allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
                     allowFullScreen
                     loading="lazy"
